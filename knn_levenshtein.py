@@ -1,7 +1,8 @@
 import numpy as np
 
+
 class KNearestLevenshtein:
-    def __init__():
+    def __init__(self):
         #defines how far back and forward the model will look from the location of the missing values for imputation
         search_Range = 1000
 
@@ -10,6 +11,16 @@ class KNearestLevenshtein:
 
         #defines the maximum levenshtein distance which is acceptable for imputation
         levDist_max = 3
+
+    def __init__(self, s_range, area, max):
+        #defines how far back and forward the model will look from the location of the missing values for imputation
+        search_Range = s_range
+
+        #defines how far back and forward will the model take a substring from the blank spaces to calculate the levenshtein distance
+        search_Area = area
+
+        #defines the maximum levenshtein distance which is acceptable for imputation
+        levDist_max = max
 
     #the function that will return a 2D array having levenshtein distances between respective indices of string 1 and 2. 
     def levenshteinDistanceCalc(token1, token2):
