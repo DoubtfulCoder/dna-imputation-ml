@@ -10,7 +10,7 @@ class KNearestLevenshtein
         search_Area = 10 
 
         #defines the maximum levenshtein distance which is acceptable for imputation
-        levDist_max = 2
+        levDist_max = 3
 
     #the function that will return a 2D array having levenshtein distances between respective indices of string 1 and 2. 
     def levenshteinDistanceCalc(token1, token2):
