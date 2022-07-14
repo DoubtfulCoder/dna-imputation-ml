@@ -1,7 +1,6 @@
 import numpy as np
 
-class KNearestLevenshtein
-{
+class KNearestLevenshtein:
     def __init__():
         #defines how far back and forward the model will look from the location of the missing values for imputation
         search_Range = 1000
@@ -47,4 +46,3 @@ class KNearestLevenshtein
     def fit():
 
     def predict():
-}
