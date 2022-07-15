@@ -1,29 +1,16 @@
 import numpy as np
-import sklearn as sk
-from sklearn.neighbors import KNeighborsClassifier
 
 
 class KNearestLevenshtein:
-    def __init__(self):
+    def __init__(self, s_range=1000, area=10, max=3):
         # defines how far back and forward the model will look from the location of the missing values for imputation
-        search_Range = 1000
+        self.search_range = s_range
 
         # defines how far back and forward will the model take a substring from the blank spaces to calculate the levenshtein distance
-        search_Area = 10
+        self.search_area = area
 
         # defines the maximum levenshtein distance which is acceptable for imputation
-        levDist_max = 3
-
-    def __init__(self, s_range, area, max):
-        # defines how far back and forward the model will look from the location of the missing values for imputation
-        search_Range = s_range
-
-        # defines how far back and forward will the model take a substring from the blank spaces to calculate the levenshtein distance
-        search_Area = area
-
-        # defines the maximum levenshtein distance which is acceptable for imputation
-        levDist_max = max
-        KNeighborsClassifier()
+        self.levDist_max = max
 
     # the function that will return a 2D array having levenshtein distances between respective indices of string 1 and 2.
     def levenshteinDistanceCalc(token1, token2):
@@ -58,11 +45,16 @@ class KNearestLevenshtein:
         # print(distances)
         return distances[len(token1)][len(token2)]
 
-    def fit():
-        pass
+    # Fits model to a sequence in genome with next 4 characters to be predicted
+    def fit(self, species):
+        self.species = species
 
-    def predict():
-        pass
+    # Predicts/imputes next four characters based on another species
+    def predict(self, other_species):
+        neighbors = KNearestLevenshtein.get_neighbors(
+            self.species, other_species, 4)
+        print('neighbors', neighbors)
+        return neighbors[0]
 
     # Gets the k most similar neighbors using levenshtein distance
     def get_neighbors(correct_seq, other_species, k):
@@ -86,17 +78,12 @@ print(KNearestLevenshtein.levenshteinDistanceCalc("hello", "hello"))
 print(KNearestLevenshtein.levenshteinDistanceCalc("hello", "helloo"))
 print(KNearestLevenshtein.levenshteinDistanceCalc("hello", "houswo"))
 
+train = "CACAGACTTTTCTGGATATG"
+test = "CAGATTCGGAAAAGGGATATTAAGGCGAATTTGAATGGTCCAGTAGTGAAAATATCACAAACAAAAAGTAGAAAAATGTGATCTTTTCTATTCCCTAAAAAGCGTTTCGAAAAGCGCGGTTCCGTGTGGATTTCCCAATTTTGGAAGTTAATGGACCAAAATCGCGCAAAAAACACGGGCACACCTGATGAATCAGTTTTGCAAAATCCTGCAAAAAATATTTCAACGTACTCACGTTAACTCATTCAGGAAATCAATGAGATCAATGTGTACGATAGGTTTGTGCCCGTGACAAAGGATCAGCAATTTTCAGAAGAGGCGCCAGAAAATTTGTGTTTTTGAATTTGCGCAATACAATTTTCAATCCACACAGACTTTTTTTGTATTATTTTCAATCCAA"
 
-# train = [
-#     "GCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGC",
-#     "CTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCT",
-#     "AAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAA",
-#     "GCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGC",
-#     "CTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCT"
-# ]
+print(KNearestLevenshtein.get_neighbors(train, test, 5))
 
-train = "CAGATTCGGAAAAGGGATATTAAGGCGAATTTGAATGGTCCAGTAGTGAAAATATCACAAACAAAAAGTAGAAAAATGTGATCTTTTCTATTCCCTAAAAAGCGTTTCGAAAAGCGCGGTTCCGTGTGGATTTCCCAATTTTGGAAGTTAATGGACCAAAATCGCGCAAAAAACACGGGCACACCTGATGAATCAGTTTTGCAAAATCCTGCAAAAAATATTTCAACGTACTCACGTTAACTCATTCAGGAAATCAATGAGATCAATGTGTACGATAGGTTTGTGCCCGTGACAAAGGATCAGCAATTTTCAGAAGAGGCGCCAGAAAATTTGTGTTTTTGAATTTGCGCAATACAATTTTCAATCCACACAGACTTTTTTTGTATTATTTTCAATCCAA"
-
-test = "CACAGACTTTTCTGGATATG"
-
-print(KNearestLevenshtein.get_neighbors(test, train, 5))
+# tests with oop
+kn = KNearestLevenshtein()
+kn.fit(train)
+print(kn.predict(test))
