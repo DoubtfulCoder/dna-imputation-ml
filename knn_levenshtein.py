@@ -7,7 +7,7 @@ class KNearestLevenshtein:
         self.search_range = s_range
 
         # defines how far back and forward will the model take a substring from the blank spaces to calculate the levenshtein distance
-        self.search_area = 10
+        self.search_area = area
 
         # defines the maximum levenshtein distance which is acceptable for imputation
         self.levDist_max = max_ld
@@ -105,7 +105,7 @@ class KNearestLevenshtein:
 # print(KNearestLevenshtein.levenshteinDistanceCalc("hello", "helloo"))
 # print(KNearestLevenshtein.levenshteinDistanceCalc("hello", "houswo"))
 
-train = "GATCTTTTCTATTCCCTAAC    GTTTCGAACAGCGCGGTTCC"
+train = "GATCTTTTCTATTCCCTAAC    GTTTCGAACAGCGCGGTTCCCCAGTAGCGAAAAT  CACAAACAAATAGTAGCAAAAT"
 test = "CAGATTCGGAAAAGGGATATTAAGGCGAATTTGAATGGTCCAGTAGTGAAAATATCACAAACAAAAAGTAGAAAAATGTGATCTTTTCTATTCCCTAAAAAGCGTTTCGAAAAGCGCGGTTCCGTGTGGATTTCCCAATTTTGGAAGTTAATGGACCAAAATCGCGCAAAAAACACGGGCACACCTGATGAATCAGTTTTGCAAAATCCTGCAAAAAATATTTCAACGTACTCACGTTAACTCATTCAGGAAATCAATGAGATCAATGTGTACGATAGGTTTGTGCCCGTGACAAAGGATCAGCAATTTTCAGAAGAGGCGCCAGAAAATTTGTGTTTTTGAATTTGCGCAATACAATTTTCAATCCACACAGACTTTTTTTGTATTATTTTCAATCCAA"
 
 #print(KNearestLevenshtein.get_neighbors(train, test, 5))
