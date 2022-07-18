@@ -1,8 +1,9 @@
 import random
 import numpy as np
 
+
 # Opens chromosome file
-def open_file(file_name, character_limit=1000):
+def open_file(file_name, character_limit=3000):
     with open(file_name, 'r') as f:
         return f.readlines(character_limit)[1:]
 
@@ -24,6 +25,7 @@ def hide_random_sequence(genome, max_length=6):
         genome = new_genome
     return genome
 
+
 def missing_values_array(genome, new_genome):
     correct_values = []
     i = 0
@@ -33,12 +35,13 @@ def missing_values_array(genome, new_genome):
             for j in range(i, len(new_genome)):
                 if new_genome[j] == ' ':
                     blank_len += 1
-                else: 
+                else:
                     break
             correct_values.append(genome[i:i+blank_len])
             i += blank_len
-        i+= 1
+        i += 1
     return correct_values
+
 
 class KNearestLevenshtein:
     def __init__(self, s_range=1000, area=10, max_ld=3, k=5):
@@ -107,7 +110,7 @@ class KNearestLevenshtein:
                         break
                 neighbors = KNearestLevenshtein.get_neighbors(
                     self, self.species, other_species, blank_len, blank_idx)
-                print('neighbors for blank space at ', i, 'are: ', neighbors)
+                # print('neighbors for blank space at ', i, 'are: ', neighbors)
 
                 # Make dictionary of predictions and # of times they appear
                 predictions = {}
@@ -144,26 +147,39 @@ class KNearestLevenshtein:
         neighbors.sort(key=lambda tup: tup[1])
         return neighbors[:self.k_neighbors]
 
+
 # file opening and base hiding tests
-genomeList = open_file('dna-imputation-ml/chrI_celegans.fna')
+genomeList = open_file('chrI_celegans.fna')
 genome = ''.join(genomeList)  # combine each line of genome into 1 string
 genome = genome.replace('\n', '')  # remove newline characters
-otherGenomeList = open_file('dna-imputation-ml/chrI_cbriggsae.fna')
-otherGenome = ''.join(otherGenomeList)  # combine each line of genome into 1 string
+otherGenomeList = open_file('chrI_cbriggsae.fna')
+# combine each line of genome into 1 string
+otherGenome = ''.join(otherGenomeList)
 otherGenome = otherGenome.replace('\n', ' ')  # remove newline characters
 new_genome = hide_random_sequence(genome)
 correct_values = missing_values_array(genome, new_genome)
 # print(otherGenome, '\n')
-print(new_genome, '\n')
+# print(new_genome, '\n')
 # print(correct_values)
 
-#predicting
+# predicting
 kn = KNearestLevenshtein()
 kn.fit(new_genome)
 preds = kn.predict(otherGenome)
 
-print(correct_values, '\n')
-print(preds)
+# print(correct_values, '\n')
+# print(preds)
+
+num_correct = 0
+num_total = 0
+for i in range(len(correct_values)):
+    correct = correct_values[i]
+    pred = preds[i]
+    for j in range(len(correct)):
+        if correct[j] == pred[j]:
+            num_correct += 1
+        num_total += 1
+print('Accuracy: ', num_correct/num_total)
 
 # tests
 # print(KNearestLevenshtein.levenshteinDistanceCalc("hello", "hello"))
