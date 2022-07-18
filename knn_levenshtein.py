@@ -3,7 +3,7 @@ import numpy as np
 
 
 # Opens chromosome file
-def open_file(file_name, character_limit=3000):
+def open_file(file_name, character_limit=2000):
     with open(file_name, 'r') as f:
         return f.readlines(character_limit)[1:]
 
@@ -149,10 +149,10 @@ class KNearestLevenshtein:
 
 
 # file opening and base hiding tests
-genomeList = open_file('chrI_celegans.fna')
+genomeList = open_file('dna-imputation-ml/chrI_celegans.fna')
 genome = ''.join(genomeList)  # combine each line of genome into 1 string
 genome = genome.replace('\n', '')  # remove newline characters
-otherGenomeList = open_file('chrI_cbriggsae.fna')
+otherGenomeList = open_file('dna-imputation-ml/chrI_cbriggsae.fna')
 # combine each line of genome into 1 string
 otherGenome = ''.join(otherGenomeList)
 otherGenome = otherGenome.replace('\n', ' ')  # remove newline characters
@@ -172,14 +172,17 @@ preds = kn.predict(otherGenome)
 
 num_correct = 0
 num_total = 0
+error_rates = []
 for i in range(len(correct_values)):
     correct = correct_values[i]
     pred = preds[i]
+    error_rates.append(KNearestLevenshtein.levenshteinDistanceCalc(correct, pred)/len(pred))
     for j in range(len(correct)):
         if correct[j] == pred[j]:
             num_correct += 1
         num_total += 1
 print('Accuracy: ', num_correct/num_total)
+print('Error: ', np.mean(error_rates))
 
 # tests
 # print(KNearestLevenshtein.levenshteinDistanceCalc("hello", "hello"))
