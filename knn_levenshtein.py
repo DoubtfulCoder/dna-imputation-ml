@@ -1,8 +1,40 @@
+import random
 import numpy as np
+
+# Opens chromosome file
+def open_file(file_name, character_limit=1000):
+    with open(file_name, 'r') as f:
+        return f.readlines(character_limit)[1:]
+
+
+# Hides random sequences of bases in the genome
+def hide_random_sequence(genome, max_length=6):
+    iters = int(len(genome) / 70)  # number of times we should hide a sequence
+    for i in range(iters):
+        # hide sequences of random length from 1 to max_length
+        hidden_sequence_length = random.randint(1, max_length)
+        # pick a random position and hide sequence starting from there
+        start_index = random.randint(0, len(genome) - hidden_sequence_length)
+        new_genome = genome[:start_index]
+        # add blank spaces for hidden part
+        for j in range(hidden_sequence_length):
+            new_genome += ' '
+        # add in everything else
+        new_genome += genome[start_index + hidden_sequence_length:]
+        genome = new_genome
+    return genome
+
+
+# file opening and base hiding tests
+genomeList = open_file('chrI.fna')
+genome = ''.join(genomeList)  # combine each line of genome into 1 string
+genome = genome.replace('\n', '')  # remove newline characters
+print(genome)
+print(hide_random_sequence(genome))
 
 
 class KNearestLevenshtein:
-    def __init__(self, s_range=1000, area=10, max_ld=3, k = 5):
+    def __init__(self, s_range=1000, area=10, max_ld=3, k=5):
         # defines how far back and forward the model will look from the location of the missing values for imputation
         self.search_range = s_range
 
@@ -50,7 +82,7 @@ class KNearestLevenshtein:
 
     # Fits model to a sequence in genome with next 4 characters to be predicted
     def fit(self, species):
-        #later to be changed into a for loop in order to account for multiple species
+        # later to be changed into a for loop in order to account for multiple species
         self.species = species
 
     # Predicts/imputes next four characters based on another species
@@ -60,13 +92,14 @@ class KNearestLevenshtein:
             if self.species[i] == ' ':
                 blank_len = 0
                 blank_idx = i
-                for j in range(i,len(self.species)):
+                for j in range(i, len(self.species)):
                     if self.species[j] == ' ':
                         blank_len += 1
                     else:
                         break
-                neighbors = KNearestLevenshtein.get_neighbors(self, self.species, other_species, blank_len, blank_idx)
-                print('neighbors for blank space at ', i , 'are: ', neighbors)
+                neighbors = KNearestLevenshtein.get_neighbors(
+                    self, self.species, other_species, blank_len, blank_idx)
+                print('neighbors for blank space at ', i, 'are: ', neighbors)
 
                 # Make dictionary of predictions and # of times they appear
                 predictions = {}
@@ -80,7 +113,7 @@ class KNearestLevenshtein:
                 # Find most common prediction
                 max_prediction = max(predictions, key=predictions.get)
                 print('max prediction', max_prediction)
-                i+= blank_len
+                i += blank_len
             i += 1
 
     # Gets the k most similar neighbors using levenshtein distance
@@ -88,12 +121,15 @@ class KNearestLevenshtein:
         neighbors = []
 
         # Loop over other species genome 4 characters at a time
-        for i in range(0, len(other_species)- self.search_area - blank_len):
+        for i in range(0, len(other_species) - self.search_area - blank_len):
             # Check every substring of 20 chars in other_species
-            substring_pre = other_species[i:i+ self.search_area]
-            substring_post = other_species[i+ self.search_area+blank_len:i+ 2*(self.search_area)+blank_len]
-            prediction = other_species[i+ self.search_area + 1:i+ self.search_area+ 1 +blank_len]
-            neighbors.append((prediction,(KNearestLevenshtein.levenshteinDistanceCalc(substring_pre, correct_seq[blank_idx -self.search_area - 1: blank_idx]) + KNearestLevenshtein.levenshteinDistanceCalc(substring_pre, correct_seq[blank_idx + blank_len: blank_idx + blank_len + self.search_area]))/2))
+            substring_pre = other_species[i:i + self.search_area]
+            substring_post = other_species[i + self.search_area +
+                                           blank_len:i + 2*(self.search_area)+blank_len]
+            prediction = other_species[i + self.search_area +
+                                       1:i + self.search_area + 1 + blank_len]
+            neighbors.append((prediction, (KNearestLevenshtein.levenshteinDistanceCalc(substring_pre, correct_seq[blank_idx - self.search_area - 1: blank_idx]) + KNearestLevenshtein.levenshteinDistanceCalc(
+                substring_pre, correct_seq[blank_idx + blank_len: blank_idx + blank_len + self.search_area]))/2))
 
         # Sort neighbors by distance
         neighbors.sort(key=lambda tup: tup[1])
