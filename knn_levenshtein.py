@@ -1,9 +1,12 @@
 import random
-import numpy as np
 
+import numpy as np
+from Levenshtein import distance
 
 # Opens chromosome file
-def open_file(file_name, character_limit=2000):
+
+
+def open_file(file_name, character_limit=10000):
     with open(file_name, 'r') as f:
         return f.readlines(character_limit)[1:]
 
@@ -44,7 +47,7 @@ def missing_values_array(genome, new_genome):
 
 
 class KNearestLevenshtein:
-    def __init__(self, s_range=1000, area=20, max_ld=3, k=5):
+    def __init__(self, s_range=1000, area=10, max_ld=3, k=5):
         # defines how far back and forward the model will look from the location of the missing values for imputation
         self.search_range = s_range
 
@@ -59,6 +62,7 @@ class KNearestLevenshtein:
 
     # the function that will return a 2D array having levenshtein distances between respective indices of string 1 and 2.
     def levenshteinDistanceCalc(token1, token2):
+        return distance(token1, token2, score_cutoff=12)
         distances = np.zeros((len(token1) + 1, len(token2) + 1))
 
         for t1 in range(len(token1) + 1):
@@ -110,7 +114,7 @@ class KNearestLevenshtein:
                         break
                 neighbors = KNearestLevenshtein.get_neighbors(
                     self, self.species, other_species, blank_len, blank_idx)
-                print('neighbors for blank space at ', i, 'are: ', neighbors)
+                # print('neighbors for blank space at ', i, 'are: ', neighbors)
 
                 # Make dictionary of predictions and # of times they appear
                 predictions = {}
@@ -149,11 +153,13 @@ class KNearestLevenshtein:
 
 
 # file opening and base hiding tests
-genomeList = open_file('chrI_celegans.fna', character_limit = 4000)
+char_limit = 50000
+
+genomeList = open_file('chrI_celegans.fna', character_limit=char_limit)
 genome = ''.join(genomeList)  # combine each line of genome into 1 string
 genome = genome.replace('\n', '')  # remove newline characters
-genome_missing = genome[:2000]
-genome_full = genome[2000:]
+genome_missing = genome[:int(char_limit/2)]
+genome_full = genome[int(char_limit/2):]
 otherGenomeList = open_file('chrI_cbriggsae.fna')
 # combine each line of genome into 1 string
 otherGenome = ''.join(otherGenomeList)
@@ -177,9 +183,10 @@ error_rates = []
 for i in range(len(correct_values)):
     correct = correct_values[i]
     pred = preds[i]
-    error_rates.append(KNearestLevenshtein.levenshteinDistanceCalc(correct, pred)/len(pred))
+    error_rates.append(
+        KNearestLevenshtein.levenshteinDistanceCalc(correct, pred)/len(pred))
     for j in range(len(correct)):
-        if correct[j] == pred[j]:   
+        if correct[j] == pred[j]:
             num_correct += 1
         num_total += 1
 print('Accuracy: ', num_correct/num_total)
