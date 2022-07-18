@@ -44,7 +44,7 @@ def missing_values_array(genome, new_genome):
 
 
 class KNearestLevenshtein:
-    def __init__(self, s_range=1000, area=10, max_ld=3, k=5):
+    def __init__(self, s_range=1000, area=20, max_ld=3, k=5):
         # defines how far back and forward the model will look from the location of the missing values for imputation
         self.search_range = s_range
 
@@ -110,7 +110,7 @@ class KNearestLevenshtein:
                         break
                 neighbors = KNearestLevenshtein.get_neighbors(
                     self, self.species, other_species, blank_len, blank_idx)
-                # print('neighbors for blank space at ', i, 'are: ', neighbors)
+                print('neighbors for blank space at ', i, 'are: ', neighbors)
 
                 # Make dictionary of predictions and # of times they appear
                 predictions = {}
@@ -149,26 +149,27 @@ class KNearestLevenshtein:
 
 
 # file opening and base hiding tests
-genomeList = open_file('chrI_celegans.fna')
+genomeList = open_file('chrI_celegans.fna', character_limit = 4000)
 genome = ''.join(genomeList)  # combine each line of genome into 1 string
 genome = genome.replace('\n', '')  # remove newline characters
+genome_missing = genome[:2000]
+genome_full = genome[2000:]
 otherGenomeList = open_file('chrI_cbriggsae.fna')
 # combine each line of genome into 1 string
 otherGenome = ''.join(otherGenomeList)
 otherGenome = otherGenome.replace('\n', ' ')  # remove newline characters
-new_genome = hide_random_sequence(genome)
-correct_values = missing_values_array(genome, new_genome)
+new_genome = hide_random_sequence(genome_missing)
+correct_values = missing_values_array(genome_missing, new_genome)
 # print(otherGenome, '\n')
 # print(new_genome, '\n')
 # print(correct_values)
 
-# predicting
 kn = KNearestLevenshtein()
 kn.fit(new_genome)
-preds = kn.predict(otherGenome)
+preds = kn.predict(genome_full)
 
-# print(correct_values, '\n')
-# print(preds)
+print(correct_values, '\n')
+print(preds)
 
 num_correct = 0
 num_total = 0
@@ -178,11 +179,11 @@ for i in range(len(correct_values)):
     pred = preds[i]
     error_rates.append(KNearestLevenshtein.levenshteinDistanceCalc(correct, pred)/len(pred))
     for j in range(len(correct)):
-        if correct[j] == pred[j]:
+        if correct[j] == pred[j]:   
             num_correct += 1
         num_total += 1
 print('Accuracy: ', num_correct/num_total)
-print('Error: ', np.mean(error_rates))
+print('Levnshtein Error: ', np.mean(error_rates))
 
 # tests
 # print(KNearestLevenshtein.levenshteinDistanceCalc("hello", "hello"))
