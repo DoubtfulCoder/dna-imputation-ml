@@ -149,10 +149,10 @@ class KNearestLevenshtein:
 
 
 # file opening and base hiding tests
-genomeList = open_file('dna-imputation-ml/chrI_celegans.fna')
+genomeList = open_file('chrI_celegans.fna')
 genome = ''.join(genomeList)  # combine each line of genome into 1 string
 genome = genome.replace('\n', '')  # remove newline characters
-otherGenomeList = open_file('dna-imputation-ml/chrI_cbriggsae.fna')
+otherGenomeList = open_file('chrI_cbriggsae.fna')
 # combine each line of genome into 1 string
 otherGenome = ''.join(otherGenomeList)
 otherGenome = otherGenome.replace('\n', ' ')  # remove newline characters
