@@ -1,4 +1,3 @@
-import random
 import sys
 
 import numpy as np
@@ -9,49 +8,8 @@ log_file = open("message.log", "w")
 sys.stdout = log_file
 
 
-# Opens chromosome file
-def open_file(file_name, character_limit=10000):
-    with open(file_name, 'r') as f:
-        return f.readlines(character_limit)[1:]
-
-
-# Hides random sequences of bases in the genome
-def hide_random_sequence(genome, max_length=10):
-    iters = int(len(genome) / 100)  # number of times we should hide a sequence
-    for i in range(iters):
-        # hide sequences of random length from 1 to max_length
-        hidden_sequence_length = random.randint(5, max_length)
-        # pick a random position and hide sequence starting from there
-        start_index = random.randint(0, len(genome) - hidden_sequence_length)
-        new_genome = genome[:start_index]
-        # add blank spaces for hidden part
-        for j in range(hidden_sequence_length):
-            new_genome += ' '
-        # add in everything else
-        new_genome += genome[start_index + hidden_sequence_length:]
-        genome = new_genome
-    return genome
-
-
-def missing_values_array(genome, new_genome):
-    correct_values = []
-    i = 0
-    while(i < len(new_genome)):
-        if new_genome[i] == ' ':
-            blank_len = 0
-            for j in range(i, len(new_genome)):
-                if new_genome[j] == ' ':
-                    blank_len += 1
-                else:
-                    break
-            correct_values.append(genome[i:i+blank_len])
-            i += blank_len
-        i += 1
-    return correct_values
-
-
 class KNearestLevenshtein:
-    def __init__(self, s_range=1000, area=20, max_ld=3, k=10):
+    def __init__(self, s_range=1000, area=10, max_ld=3, k=10):
         # defines how far back and forward the model will look from the location of the missing values for imputation
         self.search_range = s_range
 
@@ -156,67 +114,3 @@ class KNearestLevenshtein:
         # Sort neighbors by distance
         neighbors.sort(key=lambda tup: tup[1])
         return neighbors[:self.k_neighbors]
-
-
-# file opening and base hiding tests
-char_limit = 50000
-
-genomeList = open_file('chrI_celegans.fna', character_limit=char_limit)
-genome = ''.join(genomeList)  # combine each line of genome into 1 string
-genome = genome.replace('\n', '')  # remove newline characters
-
-# genome_missing = genome[1200:char_limit]
-# genome_full = genome[1200:char_limit]
-
-genome_missing = genome
-
-# genome_missing = genome[:int(len(genome)/2)]
-# genome_full = genome[int(len(genome)/2):]
-# genome_full = genome[:int(char_limit/2)]
-otherGenomeList = open_file('chrI_cbriggsae.fna', character_limit=char_limit)
-# combine each line of genome into 1 string
-otherGenome = ''.join(otherGenomeList)
-otherGenome = otherGenome.replace('\n', '')  # remove newline characters
-new_genome = hide_random_sequence(genome_missing)
-correct_values = missing_values_array(genome_missing, new_genome)
-# print(len(otherGenome), '\n')
-# print(len(new_genome), '\n')
-# print(correct_values)
-
-kn = KNearestLevenshtein()
-kn.fit(new_genome)
-# preds = kn.predict(genome_full)
-preds = kn.predict(otherGenome)
-
-print('correct values:', correct_values, '\n')
-print('predictions:', preds)
-
-num_correct = 0
-num_total = 0
-error_rates = []
-for i in range(len(correct_values)):
-    correct = correct_values[i]
-    pred = preds[i]
-    error_rates.append(
-        KNearestLevenshtein.levenshteinDistanceCalc(correct, pred)/len(pred))
-    for j in range(len(correct)):
-        if correct[j] == pred[j]:
-            num_correct += 1
-        num_total += 1
-print('Accuracy: ', num_correct/num_total)
-print('Levenshtein Error: ', np.mean(error_rates))
-
-# tests
-# print(KNearestLevenshtein.levenshteinDistanceCalc("hello", "hello"))
-# print(KNearestLevenshtein.levenshteinDistanceCalc("hello", "helloo"))
-# print(KNearestLevenshtein.levenshteinDistanceCalc("hello", "houswo"))
-
-# train = "GATCTTTTCTATTCCCTAAC    GTTTCGAACAGCGCGGTTCCCCAGTAGCGAAAAT  CACAAACAAATAGTAGCAAAAT"
-# test = "CAGATTCGGAAAAGGGATATTAAGGCGAATTTGAATGGTCCAGTAGTGAAAATATCACAAACAAAAAGTAGAAAAATGTGATCTTTTCTATTCCCTAAAAAGCGTTTCGAAAAGCGCGGTTCCGTGTGGATTTCCCAATTTTGGAAGTTAATGGACCAAAATCGCGCAAAAAACACGGGCACACCTGATGAATCAGTTTTGCAAAATCCTGCAAAAAATATTTCAACGTACTCACGTTAACTCATTCAGGAAATCAATGAGATCAATGTGTACGATAGGTTTGTGCCCGTGACAAAGGATCAGCAATTTTCAGAAGAGGCGCCAGAAAATTTGTGTTTTTGAATTTGCGCAATACAATTTTCAATCCACACAGACTTTTTTTGTATTATTTTCAATCCAA"
-
-#print(KNearestLevenshtein.get_neighbors(train, test, 5))
-
-# tests with oop
-# kn = KNearestLevenshtein()
-# kn.fit(train)
-# kn.predict(test)
