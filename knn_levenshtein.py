@@ -9,7 +9,7 @@ sys.stdout = log_file
 
 
 class KNearestLevenshtein:
-    def __init__(self, s_range=1000, area=10, max_ld=3, k=10):
+    def __init__(self, s_range=1000, area=30, max_ld=3, k=10):
         # defines how far back and forward the model will look from the location of the missing values for imputation
         self.search_range = s_range
 
@@ -104,13 +104,21 @@ class KNearestLevenshtein:
         for i in range(0, len(other_species) - self.search_area - blank_len):
             # Check every substring of 20 chars in other_species
             substring_pre = other_species[i:i + self.search_area]
-            substring_post = other_species[i + self.search_area +
-                                           blank_len:i + 2*(self.search_area)+blank_len]
-            prediction = other_species[i +
-                                       self.search_area:i + self.search_area + blank_len]
-            neighbors.append((prediction, (KNearestLevenshtein.levenshteinDistanceCalc(substring_pre, correct_seq[blank_idx - self.search_area - 1: blank_idx]) + KNearestLevenshtein.levenshteinDistanceCalc(
+            substring_post = other_species[i + self.search_area + blank_len: i + 2*(self.search_area)+blank_len]
+            prediction = other_species[i + self.search_area:i + self.search_area + blank_len]
+            neighbors.append((prediction, (KNearestLevenshtein.levenshteinDistanceCalc(substring_pre, correct_seq[blank_idx - self.search_area: blank_idx]) + KNearestLevenshtein.levenshteinDistanceCalc(
                 substring_post, correct_seq[blank_idx + blank_len: blank_idx + blank_len + self.search_area]))/2))
 
         # Sort neighbors by distance
         neighbors.sort(key=lambda tup: tup[1])
-        return neighbors[:self.k_neighbors]
+        least_lev = neighbors[0][1]
+        lev_count = 0
+        for neighbor in neighbors:
+            if neighbor[1] == least_lev:
+                lev_count += 1
+            else:
+                break
+        if lev_count < self.k_neighbors:
+             return neighbors[:self.k_neighbors]
+        else:
+            return neighbors[:lev_count]
