@@ -115,13 +115,22 @@ class KNearestLevenshtein:
         # Sort neighbors by distance
         neighbors.sort(key=lambda tup: tup[1])
         least_lev = neighbors[0][1]
-        lev_count = 0
+        # lev_count = 0
+        # for neighbor in neighbors:
+        #     if neighbor[1] - least_lev <= 3:
+        #         k_count += 1
+        #     else:
+        #         break
+        # if lev_count < self.k_neighbors:
+        #     return neighbors[:self.k_neighbors]
+        # else:
+        #     return neighbors[:lev_count]
+
+        #adding a max dist
+        k_count = 0
         for neighbor in neighbors:
-            if neighbor[1] == least_lev:
-                lev_count += 1
+            if neighbor[1] - least_lev <= 3:
+                k_count += 1
             else:
                 break
-        if lev_count < self.k_neighbors:
-            return neighbors[:self.k_neighbors]
-        else:
-            return neighbors[:lev_count]
+            return neighbors[:k_count]
