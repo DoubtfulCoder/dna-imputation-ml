@@ -14,15 +14,35 @@ from species import hide_random_sequence, missing_values_array, open_file
 # kn.predict(test)
 
 # file opening and base hiding tests
-char_limit = 500000
 
-genomeList = open_file('chrI_celegans.fna', character_limit=char_limit)
+path1 = 'mus_musculus_pahari/musculus/zfp746.fna'
+path2 = 'mus_musculus_pahari/pahari/znf746.fna'
+
+path3 = 'mus_musculus_pahari/musculus/nfkb1.fna'
+path4 = 'mus_musculus_pahari/pahari/nfkb1.fna'
+
+path5 = 'mus_musculus_pahari/musculus/prkrip1.fna'
+path6 = 'mus_musculus_pahari/pahari/prkrip1.fna'
+
+path7 = 'mus_musculus_pahari/musculus/mecp2.fna'
+path8 = 'mus_musculus_pahari/pahari/mecp2.fna'
+
+path9 = 'mus_musculus_pahari/musculus/mafa.fna'
+path10 = 'mus_musculus_pahari/pahari/mafa.fna'
+
+char_limit = 100000
+
+# genomeList = open_file('chrI_celegans.fna', character_limit=char_limit)
+genomeList = open_file(path9, character_limit=char_limit)
 genome = ''.join(genomeList)  # combine each line of genome into 1 string
 genome = genome.replace('\n', '')  # remove newline characters
 
 
 def testWithTwoSpecies():
-    otherGenomeList = open_file('chrI_cbriggsae.fna', character_limit=char_limit)
+    # otherGenomeList = open_file(
+    #     'chrI_cbriggsae.fna', character_limit=char_limit)
+    otherGenomeList = open_file(
+        path10, character_limit=char_limit)
     # combine each line of genome into 1 string
     otherGenome = ''.join(otherGenomeList)
     otherGenome = otherGenome.replace('\n', '')  # remove newline characters
@@ -46,7 +66,7 @@ def testWithOneSpecies():
     genomeList = open_file('chrI_celegans.fna', character_limit=2*char_limit)
     genome = ''.join(genomeList)  # combine each line of genome into 1 string
     genome = genome.replace('\n', '')  # remove newline characters
-    
+
     genome_missing = genome[:int(len(genome)/2)]
     genome_full = genome[int(len(genome)/2):]
 
@@ -82,5 +102,5 @@ def calcAccuracy(correct_values, preds):
     print('Levenshtein Error: ', np.mean(error_rates))
 
 
-#testWithOneSpecies()
+# testWithOneSpecies()
 testWithTwoSpecies()

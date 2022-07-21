@@ -1,7 +1,7 @@
 import sys
 
 import numpy as np
-from Levenshtein import distance
+from Levenshtein import distance, hamming
 
 # Redirect output to file for easier viewing
 log_file = open("message.log", "w")
@@ -9,7 +9,7 @@ sys.stdout = log_file
 
 
 class KNearestLevenshtein:
-    def __init__(self, s_range=1000, area=30, max_ld=3, k=10):
+    def __init__(self, s_range=1000, area=20, max_ld=3, k=10):
         # defines how far back and forward the model will look from the location of the missing values for imputation
         self.search_range = s_range
 
@@ -24,7 +24,8 @@ class KNearestLevenshtein:
 
     # the function that will return a 2D array having levenshtein distances between respective indices of string 1 and 2.
     def levenshteinDistanceCalc(token1, token2):
-        return distance(token1, token2)
+        # return hamming(token1, token2)
+        return distance(token1, token2, weights=(2, 2, 1))
         distances = np.zeros((len(token1) + 1, len(token2) + 1))
 
         for t1 in range(len(token1) + 1):
@@ -104,8 +105,10 @@ class KNearestLevenshtein:
         for i in range(0, len(other_species) - self.search_area - blank_len):
             # Check every substring of 20 chars in other_species
             substring_pre = other_species[i:i + self.search_area]
-            substring_post = other_species[i + self.search_area + blank_len: i + 2*(self.search_area)+blank_len]
-            prediction = other_species[i + self.search_area:i + self.search_area + blank_len]
+            substring_post = other_species[i + self.search_area +
+                                           blank_len: i + 2*(self.search_area)+blank_len]
+            prediction = other_species[i +
+                                       self.search_area:i + self.search_area + blank_len]
             neighbors.append((prediction, (KNearestLevenshtein.levenshteinDistanceCalc(substring_pre, correct_seq[blank_idx - self.search_area: blank_idx]) + KNearestLevenshtein.levenshteinDistanceCalc(
                 substring_post, correct_seq[blank_idx + blank_len: blank_idx + blank_len + self.search_area]))/2))
 
@@ -119,6 +122,6 @@ class KNearestLevenshtein:
             else:
                 break
         if lev_count < self.k_neighbors:
-             return neighbors[:self.k_neighbors]
+            return neighbors[:self.k_neighbors]
         else:
             return neighbors[:lev_count]
