@@ -1,0 +1,27 @@
+length 1: 2292
+length 2: 2287
+neighbors for blank space at  155 are:  [('GGTAGGGT', 1.5)]
+neighbors for blank space at  328 are:  [('ATGG', 0.0)]
+neighbors for blank space at  818 are:  [('ACC', 1.0)]
+neighbors for blank space at  870 are:  [('CTCCAT', 0.5)]
+neighbors for blank space at  918 are:  [('AAGA', 2.0)]
+neighbors for blank space at  1140 are:  [('TCT', 1.5)]
+neighbors for blank space at  1160 are:  [('AGGT', 1.5)]
+neighbors for blank space at  1191 are:  [('CTCC', 2.5)]
+neighbors for blank space at  1206 are:  [('GGGCT', 3.0)]
+neighbors for blank space at  1515 are:  [('ATC', 0.0)]
+neighbors for blank space at  1638 are:  [('CTTTT', 5.5)]
+neighbors for blank space at  1649 are:  [('TCCCC', 5.5)]
+neighbors for blank space at  1657 are:  [('GGTTCT', 5.5)]
+neighbors for blank space at  1722 are:  [('AAGG', 3.5)]
+neighbors for blank space at  1727 are:  [('GATAG', 4.5)]
+neighbors for blank space at  1746 are:  [('CTG', 3.5)]
+neighbors for blank space at  1846 are:  [('TCCC', 0.5)]
+neighbors for blank space at  1982 are:  [('TTG', 1.0)]
+neighbors for blank space at  2105 are:  [('GCTC', 0.0)]
+neighbors for blank space at  2175 are:  [('GTA', 1.0)]
+correct values: ['GGTAGGAT', 'ATGG', 'ACC', 'CTCCCT', 'AAGA', 'TCT', 'AGGT', 'CTCC', 'GGGCT', 'ATC', 'CTTTC', 'TCCCC', 'GGTTCT', 'AAGG', 'GACAG', 'CTG', 'TCCC', 'TTG', 'GCTC', 'GTA'] 
+
+predictions: ['GGTAGGGT', 'ATGG', 'ACC', 'CTCCAT', 'AAGA', 'TCT', 'AGGT', 'CTCC', 'GGGCT', 'ATC', 'CTTTT', 'TCCCC', 'GGTTCT', 'AAGG', 'GATAG', 'CTG', 'TCCC', 'TTG', 'GCTC', 'GTA']
+Accuracy:  0.9534883720930233
+Levenshtein Error:  0.034583333333333334

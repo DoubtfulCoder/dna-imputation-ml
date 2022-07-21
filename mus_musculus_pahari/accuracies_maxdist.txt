@@ -1,0 +1,15 @@
+ucp2: acc: 0.92, lev: 0.07, time: 2s
+atf4: acc: 0.95, lev: 0.03, time: 0.2s
+egln1: acc: 0.79, lev: 0.2, time: 1m, 11s
+qdpr: acc: 0.86, lev: 0.13, time: 12s
+cplx3: acc: 0.71, lev: 0.26, time: 1.3s
+gad2: acc: 0.87, lev: 0.12, time: 4m
+fbxw8: acc: 0.82, lev: 0.17, time: 7m
+pon1: acc: 0.84, lev: 0.16, time: 37s
+znf746: acc: 0.89, lev: 0.097, time: 36s
+nfkb1: acc: 0.837, lev:  0.15, time: 11m, 42s
+prkrip1: acc: 0.78, lev: 0.2, time: 18s
+mecp2: acc: 0.839, lev: 0.15, time: 3m
+mafa: acc: 0.95, lev: 0.04, time: 0.4s
+tmem185a: acc: 0.91, lev: 0.07, time: 18s
+casd1: acc: 0.868,lev: 0.13, time: 1m, 50s

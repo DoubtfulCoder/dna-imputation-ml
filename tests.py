@@ -65,7 +65,7 @@ path30 = 'mus_musculus_pahari/pahari/fbxw8.fna'
 char_limit = 100000
 
 # genomeList = open_file('chrI_celegans.fna', character_limit=char_limit)
-genomeList = open_file(path29, character_limit=char_limit)
+genomeList = open_file(path15, character_limit=char_limit)
 genome = ''.join(genomeList)  # combine each line of genome into 1 string
 genome = genome.replace('\n', '')  # remove newline characters
 
@@ -73,7 +73,7 @@ genome = genome.replace('\n', '')  # remove newline characters
 def testWithTwoSpecies():
     # otherGenomeList = open_file(
     #     'chrI_cbriggsae.fna', character_limit=char_limit)
-    otherGenomeList = open_file(path30, character_limit=char_limit)
+    otherGenomeList = open_file(path16, character_limit=char_limit)
     # combine each line of genome into 1 string
     otherGenome = ''.join(otherGenomeList)
     otherGenome = otherGenome.replace('\n', '')  # remove newline characters

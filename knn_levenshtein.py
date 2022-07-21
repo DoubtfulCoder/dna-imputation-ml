@@ -133,4 +133,6 @@ class KNearestLevenshtein:
                 k_count += 1
             else:
                 break
-            return neighbors[:k_count]
+        number_neigbors = min(k_count, self.k_neighbors)
+        return neighbors[:number_neigbors]
+            
