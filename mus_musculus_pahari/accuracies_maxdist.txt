@@ -2,7 +2,7 @@ ucp2: acc: 0.92, lev: 0.07, time: 2s
 atf4: acc: 0.95, lev: 0.03, time: 0.2s
 egln1: acc: 0.79, lev: 0.2, time: 1m, 11s
 qdpr: acc: 0.86, lev: 0.13, time: 12s
-cplx3: acc: 0.71, lev: 0.26, time: 1.3s
+cplx3: acc: 0.787, lev: 0.205, time: 1.3s
 gad2: acc: 0.87, lev: 0.12, time: 4m
 fbxw8: acc: 0.82, lev: 0.17, time: 7m
 pon1: acc: 0.84, lev: 0.16, time: 37s

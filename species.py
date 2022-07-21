@@ -4,7 +4,7 @@ import random
 # Opens chromosome file
 def open_file(file_name, character_limit=10000):
     with open(file_name, 'r') as f:
-        return f.readlines()[1:]
+        return f.readlines()
 
 
 # Hides random sequences of bases in the genome
