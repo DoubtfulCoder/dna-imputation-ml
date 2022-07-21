@@ -13,3 +13,11 @@ egln1: acc: 0.74, lev: 0.27, time: 1m, 23s
 qdpr: acc: 0.84. lev: 0.15, time: 16s
 cplx3: acc: 0.73, lev: 0.27, time: 1.7s
 fbxw8: acc: 0.75, lev: 0.25, time: 10m, 18s
+
+
+
+tmem185a: acc: 0.83, lev: 0.197, best: 0.844, lev: 0.17, time: 18.7s
+casd1: acc: 0.804, lev: 0.214, time: 1m,43s
+pon1: acc: 0.765, lev: 0.24, time: 37s
+gad2: acc: 0.82, lev: 0.206, time: 4m,51s
+ucp2: acc: 0.86, lev: 0.17, time: 2.45s

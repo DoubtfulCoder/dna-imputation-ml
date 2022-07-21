@@ -1,5 +1,6 @@
-import numpy as np
 import time
+
+import numpy as np
 
 from knn_levenshtein import KNearestLevenshtein
 from species import hide_random_sequence, missing_values_array, open_file
@@ -30,6 +31,21 @@ path8 = 'mus_musculus_pahari/pahari/mecp2.fna'
 
 path9 = 'mus_musculus_pahari/musculus/mafa.fna'
 path10 = 'mus_musculus_pahari/pahari/mafa.fna'
+
+path11 = 'mus_musculus_pahari/musculus/tmem185a.fna'
+path12 = 'mus_musculus_pahari/pahari/tmem185a.fna'
+
+path13 = 'mus_musculus_pahari/musculus/casd1.fna'
+path14 = 'mus_musculus_pahari/pahari/casd1.fna'
+
+path15 = 'mus_musculus_pahari/musculus/pon1.fna'
+path16 = 'mus_musculus_pahari/pahari/pon1.fna'
+
+path17 = 'mus_musculus_pahari/musculus/gad2.fna'
+path18 = 'mus_musculus_pahari/pahari/gad2.fna'
+
+path19 = 'mus_musculus_pahari/musculus/ucp2.fna'
+path20 = 'mus_musculus_pahari/pahari/ucp2.fna'
 
 path21 = 'mus_musculus_pahari/musculus/atf4.fna'
 path22 = 'mus_musculus_pahari/pahari/atf4.fna'
@@ -120,4 +136,4 @@ def calcAccuracy(correct_values, preds):
 # testWithOneSpecies()
 start_time = time.time()
 testWithTwoSpecies()
-print('time: %s' %(time.time() - start_time))
+print('time: %s' % (time.time() - start_time))
