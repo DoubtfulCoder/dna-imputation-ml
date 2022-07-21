@@ -1,0 +1,33 @@
+length 1: 2751
+length 2: 2754
+neighbors for blank space at  35 are:  [('GCCAGGACC', 0.5)]
+neighbors for blank space at  65 are:  [('GAGG', 3.5)]
+neighbors for blank space at  84 are:  [('CTGCGCCC', 4.0)]
+neighbors for blank space at  163 are:  [('CAGCAGGA', 1.0)]
+neighbors for blank space at  319 are:  [('GCCCCG', 1.0)]
+neighbors for blank space at  356 are:  [('GAGC', 3.0)]
+neighbors for blank space at  374 are:  [('CTGGCCA', 2.0)]
+neighbors for blank space at  627 are:  [('GCACTGTCG', 0.0)]
+neighbors for blank space at  699 are:  [('TGAACCC', 3.5)]
+neighbors for blank space at  711 are:  [('CGCTCAA', 3.5)]
+neighbors for blank space at  799 are:  [('TGCTG', 0.0)]
+neighbors for blank space at  865 are:  [('TGCCGGCC', 0.0)]
+neighbors for blank space at  1024 are:  [('CTTCTCC', 0.0)]
+neighbors for blank space at  1147 are:  [('CGCG', 0.5)]
+neighbors for blank space at  1198 are:  [('CGAGAA', 0.0)]
+neighbors for blank space at  1231 are:  [('GCTGA', 0.5)]
+neighbors for blank space at  1851 are:  [('TTCCT', 1.0)]
+neighbors for blank space at  1932 are:  [('ATTAGA', 1.5)]
+neighbors for blank space at  1949 are:  [('AAC', 3.0)]
+neighbors for blank space at  2039 are:  [('GCCT', 0.0)]
+neighbors for blank space at  2135 are:  [('GACT', 0.0)]
+neighbors for blank space at  2320 are:  [('TTAAA', 1.0)]
+neighbors for blank space at  2373 are:  [('TTTTA', 0.5)]
+neighbors for blank space at  2633 are:  [('TTGTG', 2.0), ('TTTGT', 4.0)]
+neighbors for blank space at  2739 are:  [('ATGTTTA', 7.0), ('TGTTTAG', 7.5), ('AATGTTT', 8.0), ('TTAGATC', 8.0), ('TAAATGT', 8.5), ('TAGATCC', 8.5), ('AAATGTT', 9.0), ('TTTAGAT', 9.0), ('ATAAATG', 9.5), ('GTTTAGA', 9.5)]
+correct values: ['GCCAGGACC', 'GAGG', 'CTGCGCCC', 'CAGCAGGA', 'GCCCCG', 'GAGC', 'CTGGCCA', 'GCACTGTCG', 'TGAACCC', 'CGCTCAA', 'TGCTG', 'TGCCGGCC', 'CTTCTCC', 'CGCG', 'CGAGAA', 'GCTGA', 'TTACT', 'ATTAGA', 'AAC', 'GCCT', 'GACT', 'TTAAA', 'TTTTA', 'TTGTG', 'GATCCAA'] 
+
+predictions: ['GCCAGGACC', 'GAGG', 'CTGCGCCC', 'CAGCAGGA', 'GCCCCG', 'GAGC', 'CTGGCCA', 'GCACTGTCG', 'TGAACCC', 'CGCTCAA', 'TGCTG', 'TGCCGGCC', 'CTTCTCC', 'CGCG', 'CGAGAA', 'GCTGA', 'TTCCT', 'ATTAGA', 'AAC', 'GCCT', 'GACT', 'TTAAA', 'TTTTA', 'TTGTG', 'ATGTTTA']
+Accuracy:  0.9527027027027027
+Levenshtein Error:  0.04228571428571429
+time: 0.42200589179992676
