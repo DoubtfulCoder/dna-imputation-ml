@@ -13,3 +13,5 @@ mecp2: acc: 0.767, lev: 0.25, time: 2m,45s
 mafa: acc: 0.82, lev: 0.246, time: 0.656s
 tmem185a: acc: 0.83, lev: 0.197, best: 0.844, lev: 0.17, time: 18.7s
 casd1: acc: 0.804, lev: 0.214, time: 1m,43s
+
+average accuracy: 0.796
