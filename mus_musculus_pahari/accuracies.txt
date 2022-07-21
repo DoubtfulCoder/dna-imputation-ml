@@ -3,3 +3,13 @@ nfkb1: acc: 0.785, lev: 0.232, time: 12m,7s
 prkrip1: acc: 0.69, lev: 0.3, best: 0.71, lev: 0.29, time: 17.3s
 mecp2: acc: 0.767, lev: 0.25, time: 2m,45s
 mafa: acc: 0.82, lev: 0.246, time: 0.656s
+
+
+
+
+
+atf4: acc: 0.90, lev: 0.09, time: 0.2s
+egln1: acc: 0.74, lev: 0.27, time: 1m, 23s
+qdpr: acc: 0.84. lev: 0.15, time: 16s
+cplx3: acc: 0.73, lev: 0.27, time: 1.7s
+fbxw8: acc: 0.75, lev: 0.25, time: 10m, 18s

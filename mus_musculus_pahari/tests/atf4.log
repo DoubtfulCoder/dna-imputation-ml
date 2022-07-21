@@ -1,0 +1,29 @@
+length 1: 2292
+length 2: 2287
+neighbors for blank space at  88 are:  [('CCCG', 2.0), ('CCGA', 5.5), ('CCCC', 6.0), ('TCCC', 9.5), ('CGAG', 9.5), ('CCTC', 9.5), ('TAAT', 9.5), ('GGAA', 10.0), ('TATG', 10.5), ('GGGC', 10.5)]
+neighbors for blank space at  171 are:  [('CACGGT', 1.0), ('ACGGTG', 4.5), ('CCACGG', 5.0), ('CGGTGG', 8.5), ('ACCACG', 9.0), ('TCTGCA', 10.0), ('GGGGGC', 10.0), ('GGCTGG', 10.0), ('GGTAGG', 10.5), ('TATAAA', 10.5)]
+neighbors for blank space at  287 are:  [('TGT', 4.0), ('GTG', 7.5), ('GTC', 7.5), ('AGT', 9.5), ('CCA', 10.0), ('CGC', 10.5), ('TCC', 10.5), ('AAG', 10.5), ('GTT', 10.5), ('TTC', 10.5)]
+neighbors for blank space at  364 are:  [('TGGCCT', 0.0), ('TTGGCC', 4.0), ('GGCCTT', 4.0), ('CAGGCT', 7.5), ('GTTGGC', 8.0), ('GCCTTT', 8.0), ('CCTTTG', 8.5), ('CGGCAG', 8.5), ('TGCCTG', 9.0), ('CAGCGT', 9.0)]
+neighbors for blank space at  487 are:  [('CGGGC', 0.5), ('CCGGG', 4.5), ('GGGCG', 4.5), ('GCGGT', 8.5), ('TTGCA', 8.5), ('CCCGG', 8.5), ('GGCGC', 8.5), ('CGGCG', 8.5), ('CTGTG', 9.0), ('TTGTT', 9.0)]
+neighbors for blank space at  531 are:  [('CGTCGGC', 3.0), ('GCGTCGG', 5.0), ('GTCGGCC', 5.5), ('CGCGTCG', 9.0), ('TCGGCCT', 9.5), ('CTGCGGC', 10.0), ('TGCGGCA', 10.0), ('CTTGAAA', 10.0), ('CGGGGGC', 10.5), ('CGCTGTG', 10.5)]
+neighbors for blank space at  645 are:  [('GCTCG', 4.0), ('CTCGC', 4.5), ('AGCTC', 7.5), ('TCGCC', 8.5), ('GGATC', 9.5), ('CTCTT', 9.5), ('AGGGC', 10.5), ('GGGAC', 10.5), ('GTTCT', 10.5), ('TCGCC', 10.5)]
+neighbors for blank space at  849 are:  [('ATGGCC', 1.5), ('AATGGC', 5.0), ('TGGCCT', 5.5), ('CAATGG', 9.0), ('AAAGTA', 9.5), ('GGCCTT', 9.5), ('CGCGGT', 10.0), ('TGTGAT', 10.0), ('CGCGAG', 10.5), ('GTTGGG', 10.5)]
+neighbors for blank space at  886 are:  [('CTGGGATT', 2.5), ('TCTGGGAT', 6.5), ('TGGGATTT', 6.5), ('CACGAAAC', 9.5), ('CCTTTTCC', 10.0), ('ATAGAAGA', 10.0), ('TGAAGCAA', 10.5), ('TTCTGGGA', 10.5), ('GGGATTTG', 10.5), ('AACCCAAT', 10.5)]
+neighbors for blank space at  999 are:  [('ACC', 1.0), ('TAC', 5.0), ('CCT', 5.0), ('ATA', 9.0), ('CTT', 9.0), ('TAA', 9.5), ('GTC', 10.0), ('CGA', 10.5), ('ATG', 10.5), ('CTC', 10.5)]
+neighbors for blank space at  1028 are:  [('CAGCA', 2.0), ('CCAGC', 5.5), ('AGCAA', 6.0), ('TCCAG', 8.5), ('GCAAA', 10.0), ('GCTTT', 11.0), ('TCTTC', 11.0), ('CCCAC', 11.0), ('TGACC', 11.0), ('AGGAG', 11.0)]
+neighbors for blank space at  1051 are:  [('GAGATGA', 1.0), ('AGATGAG', 4.5), ('CGAGATG', 5.0), ('GATGAGC', 8.0), ('CCGAGAT', 9.0), ('CCTCATG', 10.5), ('TGCCTTC', 10.5), ('CACCTGG', 10.5), ('AGGCTCT', 11.0), ('ATCTTGT', 11.0)]
+neighbors for blank space at  1148 are:  [('ATGA', 0.0), ('GATG', 4.0), ('TGAC', 4.0), ('AGAT', 8.0), ('GACT', 8.0), ('AACC', 9.5), ('TTGT', 10.0), ('CCTT', 10.5), ('GTCA', 10.5), ('ATGG', 10.5)]
+neighbors for blank space at  1173 are:  [('CTTGA', 0.0), ('ACTTG', 4.0), ('TTGAA', 4.0), ('CACTT', 8.0), ('TGAAA', 8.0), ('AAGCT', 10.0), ('GGGCG', 10.5), ('TACAC', 10.5), ('CAGTG', 10.5), ('CTGAG', 10.5)]
+neighbors for blank space at  1274 are:  [('AGGGCAGT', 2.5), ('TAGGGCAG', 6.0), ('GGGCAGTC', 6.0), ('AATACAAG', 9.5), ('GTTGGCGG', 10.0), ('GTAGGGCA', 10.0), ('GGCAGTCG', 10.0), ('AACCGTTC', 10.0), ('GACACATG', 10.0), ('TCCTTAGT', 10.0)]
+neighbors for blank space at  1425 are:  [('TGAA', 2.5), ('CTGA', 6.5), ('GAAA', 6.5), ('TCTG', 10.5), ('AAAG', 10.5), ('ACAC', 10.5), ('GTGC', 11.0), ('GACT', 11.0), ('AGAA', 11.0), ('TGTT', 11.5)]
+neighbors for blank space at  1434 are:  [('TTGAC', 2.5), ('TTTGA', 6.5), ('TGACT', 6.5), ('GTTTG', 10.5), ('GACTT', 10.5), ('TAGGA', 10.5), ('CCATG', 11.0), ('GGGAC', 11.5), ('TCACG', 11.5), ('ATCTT', 11.5)]
+neighbors for blank space at  1506 are:  [('ACACATG', 1.0), ('GACACAT', 5.0), ('CACATGT', 5.0), ('TGACACA', 9.0), ('ACATGTG', 9.0), ('GATACGC', 9.5), ('TTGGCGG', 10.0), ('GGTGCTT', 10.0), ('TGAAAGA', 10.5), ('CCTGACT', 10.5)]
+neighbors for blank space at  1601 are:  [('CAAGTCGA', 0.5), ('ACAAGTCG', 4.5), ('AAGTCGAC', 4.5), ('TACAAGTC', 8.5), ('AGTCGACC', 8.5), ('CCTCGATT', 10.0), ('GGCAGTCG', 10.0), ('GGCTCTCC', 10.0), ('CAGTCGCC', 10.5), ('AAGCCTGA', 10.5)]
+neighbors for blank space at  1769 are:  [('CAGTGTGT', 1.0), ('TCAGTGTG', 5.0), ('AGTGTGTA', 5.0), ('CTCAGTGT', 9.0), ('GTGTGTAA', 9.0), ('CGGGGCCT', 10.5), ('CGTCGTAG', 11.0), ('CTTCACGA', 11.0), ('CCACCTCC', 11.0), ('GGCGAGTG', 11.0)]
+neighbors for blank space at  1861 are:  [('CTCCACC', 0.0), ('CCTCCAC', 4.0), ('TCCACCT', 4.0), ('CCCTCCA', 8.0), ('CCACCTC', 8.0), ('TGGCCTT', 10.5), ('TGAGTCC', 10.5), ('CAGCATA', 10.5), ('CAGTTAC', 11.0), ('CAGGCTC', 11.0)]
+neighbors for blank space at  1992 are:  [('AAC', 1.0), ('AAA', 5.0), ('ACT', 5.0), ('GAA', 9.0), ('CTG', 9.0), ('TGG', 9.0), ('CTC', 9.0), ('AAA', 10.0), ('AAG', 10.0), ('AGT', 10.0)]
+correct values: ['CCCG', 'CACAGT', 'TGT', 'TGGCCT', 'CGGGC', 'CGTCGGC', 'GCTCA', 'ATGGCC', 'CTGGGATT', 'ACC', 'CAGCA', 'GAGATGA', 'ATGA', 'CTTGA', 'AGGACGGC', 'TGAA', 'TTGAC', 'ACACATG', 'AAAGTCGA', 'CCATGTGT', 'CTCCACC', 'AGC'] 
+
+predictions: ['CCCG', 'CACGGT', 'TGT', 'TGGCCT', 'CGGGC', 'CGTCGGC', 'TCGCC', 'ATGGCC', 'CTGGGATT', 'ACC', 'CAGCA', 'GAGATGA', 'ATGA', 'CTTGA', 'AGGGCAGT', 'TGAA', 'TTGAC', 'ACACATG', 'CAAGTCGA', 'CAGTGTGT', 'CTCCACC', 'AAA']
+Accuracy:  0.9032258064516129
+Levenshtein Error:  0.09924242424242423

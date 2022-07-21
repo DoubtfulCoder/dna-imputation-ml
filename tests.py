@@ -1,4 +1,5 @@
 import numpy as np
+import time
 
 from knn_levenshtein import KNearestLevenshtein
 from species import hide_random_sequence, missing_values_array, open_file
@@ -30,10 +31,25 @@ path8 = 'mus_musculus_pahari/pahari/mecp2.fna'
 path9 = 'mus_musculus_pahari/musculus/mafa.fna'
 path10 = 'mus_musculus_pahari/pahari/mafa.fna'
 
+path21 = 'mus_musculus_pahari/musculus/atf4.fna'
+path22 = 'mus_musculus_pahari/pahari/atf4.fna'
+
+path23 = 'mus_musculus_pahari/musculus/egln1.fna'
+path24 = 'mus_musculus_pahari/pahari/egln1.fna'
+
+path25 = 'mus_musculus_pahari/musculus/qdpr.fna'
+path26 = 'mus_musculus_pahari/pahari/qdpr.fna'
+
+path27 = 'mus_musculus_pahari/musculus/cplx3.fna'
+path28 = 'mus_musculus_pahari/pahari/cplx3.fna'
+
+path29 = 'mus_musculus_pahari/musculus/fbxw8.fna'
+path30 = 'mus_musculus_pahari/pahari/fbxw8.fna'
+
 char_limit = 100000
 
 # genomeList = open_file('chrI_celegans.fna', character_limit=char_limit)
-genomeList = open_file(path9, character_limit=char_limit)
+genomeList = open_file(path29, character_limit=char_limit)
 genome = ''.join(genomeList)  # combine each line of genome into 1 string
 genome = genome.replace('\n', '')  # remove newline characters
 
@@ -41,8 +57,7 @@ genome = genome.replace('\n', '')  # remove newline characters
 def testWithTwoSpecies():
     # otherGenomeList = open_file(
     #     'chrI_cbriggsae.fna', character_limit=char_limit)
-    otherGenomeList = open_file(
-        path10, character_limit=char_limit)
+    otherGenomeList = open_file(path30, character_limit=char_limit)
     # combine each line of genome into 1 string
     otherGenome = ''.join(otherGenomeList)
     otherGenome = otherGenome.replace('\n', '')  # remove newline characters
@@ -103,4 +118,6 @@ def calcAccuracy(correct_values, preds):
 
 
 # testWithOneSpecies()
+start_time = time.time()
 testWithTwoSpecies()
+print('time: %s' %(time.time() - start_time))
