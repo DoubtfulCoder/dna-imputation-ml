@@ -11,15 +11,19 @@ log_file = open("all_mus_acc.log", 'w')
 sys.stdout = log_file
 
 # reading the common genes file to see which genes can be used for imputation
-common_genes = open('genes_in_both.txt', 'r')
-data = common_genes.read()
-common_genes_list = data.split('\n')
+# common_genes = open('genes_in_both.txt', 'r')
+# data = common_genes.read()
+# common_genes_list = data.split('\n')
+# common_genes_list = ['Mis12', 'Mis18a', 'Mis18bp1', 'Misp', 'Mitd1', 'Mitf']
+common_genes_list = ['Mis12', 'Mis18a', 'Mis18bp1', 'Misp', 'Mitd1']
 
 char_limit = 200000
 
 acc_rates = []
+times = []
 
-for i in range(7395, 7396):
+# for i in range(7397, 7398):
+for i in range(len(common_genes_list)):
     start_time = time.time()
 
     mus_path = 'all mouse genes/musculus/' + common_genes_list[i] + '.fna'
@@ -40,8 +44,13 @@ for i in range(7395, 7396):
     kn.fit(new_genome)
     preds = kn.predict(otherGenome)
 
+    amount_time = time.time() - start_time
+
     print('\nPRED DETAILS FOR: ' + common_genes_list[i])
-    print('time: %s' % (time.time() - start_time))
+    print('time: %s' % amount_time)
+
+    times.append(amount_time)
     acc_rates.append(calcAccuracy(correct_values, preds))
 
-print('AVERAGE ACCURACY: ', np.mean(acc_rates))
+print('\nAVERAGE ACCURACY: ', np.mean(acc_rates))
+print('TOTAL TIME: ', np.sum(times))

@@ -135,6 +135,6 @@ def calcAccuracy(correct_values, preds):
 
 
 # testWithOneSpecies()
-start_time = time.time()
-testWithTwoSpecies()
-print('time: %s' % (time.time() - start_time))
+# start_time = time.time()
+# testWithTwoSpecies()
+# print('time: %s' % (time.time() - start_time))

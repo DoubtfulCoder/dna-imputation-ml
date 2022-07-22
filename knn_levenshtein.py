@@ -26,6 +26,9 @@ class KNearestLevenshtein:
     def levenshteinDistanceCalc(token1, token2):
         # return hamming(token1, token2)
         return distance(token1, token2, weights=(2, 2, 1))
+        # if (len(token1) != len(token2)):
+        # return distance(token1, token2, weights=(2, 2, 1))
+        # return hamming(token1, token2)
         distances = np.zeros((len(token1) + 1, len(token2) + 1))
 
         for t1 in range(len(token1) + 1):
@@ -101,16 +104,29 @@ class KNearestLevenshtein:
     def get_neighbors(self, correct_seq, other_species, blank_len, blank_idx):
         neighbors = []
 
+        i = 0
+        end = len(other_species) - self.search_area - blank_len
+
         # Loop over other species genome 4 characters at a time
-        for i in range(0, len(other_species) - self.search_area - blank_len):
+        # for i in range(0, len(other_species) - self.search_area - blank_len):
+        while i < end:
             # Check every substring of 20 chars in other_species
             substring_pre = other_species[i:i + self.search_area]
             substring_post = other_species[i + self.search_area +
                                            blank_len: i + 2*(self.search_area)+blank_len]
             prediction = other_species[i +
                                        self.search_area:i + self.search_area + blank_len]
-            neighbors.append((prediction, (KNearestLevenshtein.levenshteinDistanceCalc(substring_pre, correct_seq[blank_idx - self.search_area: blank_idx]) + KNearestLevenshtein.levenshteinDistanceCalc(
-                substring_post, correct_seq[blank_idx + blank_len: blank_idx + blank_len + self.search_area]))/2))
+            pre_distance = KNearestLevenshtein.levenshteinDistanceCalc(
+                substring_pre, correct_seq[blank_idx - self.search_area: blank_idx])
+            post_distance = KNearestLevenshtein.levenshteinDistanceCalc(
+                substring_post, correct_seq[blank_idx + blank_len: blank_idx + blank_len + self.search_area])
+            average_dist = (pre_distance + post_distance) / 2
+            neighbors.append((prediction, average_dist))
+            i += 1
+            if average_dist > 15:
+                # skip a few iters for high levenshtein
+                # print('> 12')
+                i += 3
 
         # Sort neighbors by distance
         neighbors.sort(key=lambda tup: tup[1])
