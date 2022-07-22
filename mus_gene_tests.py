@@ -18,7 +18,7 @@ char_limit = 200000
 
 acc_rates = []
 
-for i in range(7395, 7404):
+for i in range(7395,7396):
 
     mus_path = 'all mouse genes/musculus/' + common_genes_list[i] + '.fna'
     pah_path = 'all mouse genes/pahari/' + common_genes_list[i] + '.fna'
