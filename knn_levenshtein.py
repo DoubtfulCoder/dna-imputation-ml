@@ -126,7 +126,7 @@ class KNearestLevenshtein:
         # else:
         #     return neighbors[:lev_count]
 
-        #adding a max dist
+        # adding a max dist
         k_count = 0
         for neighbor in neighbors:
             if neighbor[1] - least_lev <= 3:
@@ -135,4 +135,3 @@ class KNearestLevenshtein:
                 break
         number_neigbors = min(k_count, self.k_neighbors)
         return neighbors[:number_neigbors]
-            

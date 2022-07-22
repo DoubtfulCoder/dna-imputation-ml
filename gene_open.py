@@ -7,8 +7,13 @@ from pyrsistent import m
 log_file = open("message.log", "w")
 sys.stdout = log_file
 
-path_musculus = 'C:/Users/nupur/Downloads/mus musculus data/ncbi_dataset/data/gene.fna'
-path_pahari = 'C:/Users/nupur/Downloads/mus pahari data/ncbi_dataset/data/gene.fna'
+# Nishkal paths
+# path_musculus = 'C:/Users/nupur/Downloads/mus musculus data/ncbi_dataset/data/gene.fna'
+# path_pahari = 'C:/Users/nupur/Downloads/mus pahari data/ncbi_dataset/data/gene.fna'
+
+# Naveed paths
+path_musculus = '/home/naveed/Downloads/mus_musculus_all_proteins/ncbi_dataset/data/gene.fna'
+path_pahari = '/home/naveed/Downloads/mus_pahari_all_genes/ncbi_dataset/data/gene.fna'
 
 
 def open_genes(file_name, gene_extraction_path, line_limit=20000, list_of_genes_to_use=None):
@@ -58,13 +63,14 @@ def open_genes(file_name, gene_extraction_path, line_limit=20000, list_of_genes_
     # create files for each gene
     for j in range(len(genes)):
         print(gene_names[j])
-        #print(genes[j])
+        # print(genes[j])
         if gene_names[j] == 'Prn':
-            gene_file = open(gene_extraction_path + gene_names[j] + '0.fna', 'w')
+            gene_file = open(gene_extraction_path +
+                             gene_names[j] + '0.fna', 'w')
             gene_file.truncate(0)
             gene_file.write(genes[j])
             gene_file.close()
-            continue  
+            continue
         gene_file = open(gene_extraction_path + gene_names[j] + '.fna', 'w')
         gene_file.truncate(0)
         gene_file.write(genes[j])
@@ -80,6 +86,9 @@ pahari_gene_extraction_path = 'all mouse genes/pahari/'
 
 # genomeList = open_genes(
 #     path_pahari, pahari_gene_extraction_path, line_limit=2000000000000)
+
+genomeList = open_genes(
+    path_musculus, musculus_gene_extraction_path, line_limit=2000000000000)
 
 # get all the file names in pahari directory (removes the .fna extension)
 # used to ensure we only get files in musculus that are in pahari
