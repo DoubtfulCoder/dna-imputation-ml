@@ -2,4 +2,4 @@ message.log
 __pycache__
 test_open_file.py
 all*mouse*genes/
-all_mus_acc/log
+all_mus_acc.log

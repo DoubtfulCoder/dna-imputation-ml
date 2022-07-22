@@ -7,8 +7,8 @@ from pyrsistent import m
 log_file = open("message.log", "w")
 sys.stdout = log_file
 
-path_musculus = '/home/naveed/Downloads/mus_musculus_all_proteins/ncbi_dataset/data/gene.fna'
-path_pahari = '/home/naveed/Downloads/mus_pahari_all_genes/ncbi_dataset/data/gene.fna'
+path_musculus = 'C:/Users/nupur/Downloads/mus musculus data/ncbi_dataset/data/gene.fna'
+path_pahari = 'C:/Users/nupur/Downloads/mus pahari data/ncbi_dataset/data/gene.fna'
 
 
 def open_genes(file_name, gene_extraction_path, line_limit=20000, list_of_genes_to_use=None):
@@ -28,7 +28,7 @@ def open_genes(file_name, gene_extraction_path, line_limit=20000, list_of_genes_
 
             # LOC genes are specific to pahari
             if gene_name.startswith('LOC'):
-                print("LOC gene found: " + gene_name)
+                #print("LOC gene found: " + gene_name)
                 break
 
             # use only genes that are specified in list_of_genes_to_use
@@ -58,12 +58,19 @@ def open_genes(file_name, gene_extraction_path, line_limit=20000, list_of_genes_
     # create files for each gene
     for j in range(len(genes)):
         print(gene_names[j])
-        print(genes[j])
+        #print(genes[j])
+        if gene_names[j] == 'Prn':
+            gene_file = open(gene_extraction_path + gene_names[j] + '0.fna', 'w')
+            gene_file.truncate(0)
+            gene_file.write(genes[j])
+            gene_file.close()
+            continue  
         gene_file = open(gene_extraction_path + gene_names[j] + '.fna', 'w')
+        gene_file.truncate(0)
         gene_file.write(genes[j])
         gene_file.close()
 
-    j_plus_one = j + 1
+    j_plus_one = len(genes)
     print("rest of gene names", gene_names[j_plus_one:])
     return gene_names
 
@@ -76,14 +83,24 @@ pahari_gene_extraction_path = 'all mouse genes/pahari/'
 
 # get all the file names in pahari directory (removes the .fna extension)
 # used to ensure we only get files in musculus that are in pahari
+all_files_in_musculus = [f.replace('.fna', '') for f in listdir(
+    musculus_gene_extraction_path) if isfile(join(musculus_gene_extraction_path, f))]
+
 all_files_in_pahari = [f.replace('.fna', '') for f in listdir(
     pahari_gene_extraction_path) if isfile(join(pahari_gene_extraction_path, f))]
 
-print(all_files_in_pahari)
+genes_in_both = open('genes_in_both.txt', 'w')
+genes_in_both.truncate(0)
+gene_str = ''
+for i in all_files_in_musculus:
+    if i in all_files_in_pahari:
+        gene_str += i + '\n'
+genes_in_both.write(gene_str)
+genes_in_both.close()
 
-genomeList = open_genes(
-    path_musculus, musculus_gene_extraction_path,
-    line_limit=200000, list_of_genes_to_use=all_files_in_pahari)
+# genomeList = open_genes(
+#     path_musculus, musculus_gene_extraction_path,
+#     line_limit=200000, list_of_genes_to_use=all_files_in_pahari)
 
 
 # genome = ''.join(genomeList)  # combine each line of genome into 1 string

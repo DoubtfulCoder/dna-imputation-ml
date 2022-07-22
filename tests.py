@@ -131,6 +131,7 @@ def calcAccuracy(correct_values, preds):
             num_total += 1
     print('Accuracy: ', num_correct/num_total)
     print('Levenshtein Error: ', np.mean(error_rates))
+    return num_correct/num_total
 
 
 # testWithOneSpecies()

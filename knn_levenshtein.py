@@ -77,7 +77,7 @@ class KNearestLevenshtein:
                         break
                 neighbors = KNearestLevenshtein.get_neighbors(
                     self, self.species, other_species, blank_len, blank_idx)
-                print('neighbors for blank space at ', i, 'are: ', neighbors)
+                #print('neighbors for blank space at ', i, 'are: ', neighbors)
 
                 # Make dictionary of predictions and # of times they appear
                 predictions = {}
