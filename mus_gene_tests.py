@@ -44,15 +44,21 @@ char_limit = 200000
 
 acc_rates = []
 times = []
-
+idx = []
 # for i in range(len(common_genes_list)):
 # for i in range(3, 6):
-for i in [0, 3, 4, 5]:
+i = 0
+while(i < 2):
+    rand = np.random.randint(0, 14391)
+    if rand in idx:
+        i -= 1
+        continue
+    idx.append(rand)
     start_time = time.time()
 
-    mus_path = 'all mouse genes/musculus/' + common_genes_list[i] + '.fna'
-    pah_path = 'all mouse genes/pahari/' + common_genes_list[i] + '.fna'
-    car_path = 'all mouse genes/caroli/' + common_genes_list[i] + '.fna'
+    mus_path = 'all mouse genes/musculus/' + common_genes_list[rand] + '.fna'
+    pah_path = 'all mouse genes/pahari/' + common_genes_list[rand] + '.fna'
+    car_path = 'all mouse genes/caroli/' + common_genes_list[rand] + '.fna'
 
     genomeList = open_file(mus_path, character_limit=char_limit)
     genome = ''.join(genomeList)  # combine each line of genome into 1 string
@@ -75,12 +81,17 @@ for i in [0, 3, 4, 5]:
 
     amount_time = time.time() - start_time
 
-    print('\nPRED DETAILS FOR: ' + common_genes_list[i])
+    print('\nPRED DETAILS FOR: ' + common_genes_list[rand])
     print('time: %s' % amount_time)
 
     times.append(amount_time)
     acc_rates.append(calcAccuracy(correct_values, preds))
+    i+=1
 
+genes_tested = []
+for j in idx:
+    genes_tested.append(common_genes_list[j])
+print('Genes tested: ', genes_tested)
 print('\nAVERAGE ACCURACY: ', np.mean(acc_rates))
 total_time_in_seconds = np.sum(times)
 total_minutes = int(total_time_in_seconds / 60)
