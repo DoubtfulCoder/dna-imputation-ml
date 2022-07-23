@@ -66,7 +66,7 @@ class KNearestLevenshtein:
         self.species = species
 
     # Predicts/imputes next four characters based on another species
-    def predict(self, other_species):
+    def predict(self, other_species, another_species=None):
         i = 0
         actual_preds = []
         while(i < len(self.species)):
@@ -80,6 +80,9 @@ class KNearestLevenshtein:
                         break
                 neighbors = KNearestLevenshtein.get_neighbors(
                     self, self.species, other_species, blank_len, blank_idx)
+                neighbors2 = KNearestLevenshtein.get_neighbors(
+                    self, self.species, another_species,
+                    blank_len, blank_idx) if another_species is not None else None
                 #print('neighbors for blank space at ', i, 'are: ', neighbors)
 
                 # Make dictionary of predictions and # of times they appear
@@ -91,6 +94,14 @@ class KNearestLevenshtein:
                         predictions[neighbor[0]] += 1
                     else:
                         predictions[neighbor[0]] = 1
+                # Add neighbors2 values if not None
+                if neighbors2 is not None:
+                    for neighbor in neighbors2:
+                        total_levenshtein += neighbor[1]
+                        if neighbor[0] in predictions:
+                            predictions[neighbor[0]] += 1
+                        else:
+                            predictions[neighbor[0]] = 1
                 #print('preds', predictions)
                 # print(total_levenshtein / len(neighbors))
                 # Find most common prediction
@@ -123,10 +134,10 @@ class KNearestLevenshtein:
             average_dist = (pre_distance + post_distance) / 2
             neighbors.append((prediction, average_dist))
             i += 1
-            if average_dist > 15:
-                # skip a few iters for high levenshtein
-                # print('> 12')
-                i += 3
+            # if average_dist > 15:
+            #     # skip a few iters for high levenshtein
+            #     # print('> 12')
+            #     i += 3
 
         # Sort neighbors by distance
         neighbors.sort(key=lambda tup: tup[1])

@@ -14,6 +14,7 @@ sys.stdout = log_file
 # Naveed paths
 path_musculus = '/home/naveed/Downloads/mus_musculus_all_proteins/ncbi_dataset/data/gene.fna'
 path_pahari = '/home/naveed/Downloads/mus_pahari_all_genes/ncbi_dataset/data/gene.fna'
+path_caroli = '/home/naveed/Downloads/mus_caroli_all_genes/ncbi_dataset/data/gene.fna'
 
 
 def open_genes(file_name, gene_extraction_path, line_limit=20000, list_of_genes_to_use=None):
@@ -83,12 +84,16 @@ def open_genes(file_name, gene_extraction_path, line_limit=20000, list_of_genes_
 
 musculus_gene_extraction_path = 'all mouse genes/musculus/'
 pahari_gene_extraction_path = 'all mouse genes/pahari/'
+caroli_gene_extraction_path = 'all mouse genes/caroli/'
 
 # genomeList = open_genes(
 #     path_pahari, pahari_gene_extraction_path, line_limit=2000000000000)
 
+# genomeList = open_genes(
+#     path_musculus, musculus_gene_extraction_path, line_limit=2000000000000)
+
 genomeList = open_genes(
-    path_musculus, musculus_gene_extraction_path, line_limit=2000000000000)
+    path_caroli, caroli_gene_extraction_path, line_limit=2000000000000)
 
 # get all the file names in pahari directory (removes the .fna extension)
 # used to ensure we only get files in musculus that are in pahari
@@ -98,11 +103,14 @@ all_files_in_musculus = [f.replace('.fna', '') for f in listdir(
 all_files_in_pahari = [f.replace('.fna', '') for f in listdir(
     pahari_gene_extraction_path) if isfile(join(pahari_gene_extraction_path, f))]
 
-genes_in_both = open('genes_in_both.txt', 'w')
+all_files_in_caroli = [f.replace('.fna', '') for f in listdir(
+    caroli_gene_extraction_path) if isfile(join(caroli_gene_extraction_path, f))]
+
+genes_in_both = open('genes_in_all.txt', 'w')
 genes_in_both.truncate(0)
 gene_str = ''
 for i in all_files_in_musculus:
-    if i in all_files_in_pahari:
+    if i in all_files_in_pahari and i in all_files_in_caroli:
         gene_str += i + '\n'
 genes_in_both.write(gene_str)
 genes_in_both.close()

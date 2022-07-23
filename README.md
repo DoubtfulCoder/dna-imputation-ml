@@ -1,4 +1,4 @@
-### How to download the data for genes
+### How to download the gene data
 
 1. Create a folder called _all mouse genes_. Inside of it, create two subfolders, _musculus_ and _pahari_
 2. Go to https://www.ncbi.nlm.nih.gov/labs/data-hub/gene/table/taxon/10090/ for the Mus musculus genes and https://www.ncbi.nlm.nih.gov/labs/data-hub/gene/table/taxon/10093/ for the Mus pahari genes. For each, select "Protein-coding" for Gene types. Next, click Download -> Download Package. Make sure "Gene sequences (FASTA)" is selected and download each.

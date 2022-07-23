@@ -12,22 +12,24 @@ sys.stdout = log_file
 
 # reading the common genes file to see which genes can be used for imputation
 # common_genes = open('genes_in_both.txt', 'r')
-# data = common_genes.read()
-# common_genes_list = data.split('\n')
+common_genes = open('genes_in_all.txt', 'r')
+data = common_genes.read()
+common_genes_list = data.split('\n')
 # common_genes_list = ['Mis12', 'Mis18a', 'Mis18bp1', 'Misp', 'Mitd1', 'Mitf']
-common_genes_list = ['Mis12', 'Mis18a', 'Mis18bp1', 'Misp', 'Mitd1']
+# common_genes_list = ['Mis12', 'Mis18a', 'Mis18bp1', 'Misp', 'Mitd1']
 
 char_limit = 200000
 
 acc_rates = []
 times = []
 
-# for i in range(7397, 7398):
-for i in range(len(common_genes_list)):
+# for i in range(len(common_genes_list)):
+for i in range(2, 5):
     start_time = time.time()
 
     mus_path = 'all mouse genes/musculus/' + common_genes_list[i] + '.fna'
     pah_path = 'all mouse genes/pahari/' + common_genes_list[i] + '.fna'
+    car_path = 'all mouse genes/caroli/' + common_genes_list[i] + '.fna'
 
     genomeList = open_file(mus_path, character_limit=char_limit)
     genome = ''.join(genomeList)  # combine each line of genome into 1 string
@@ -37,11 +39,16 @@ for i in range(len(common_genes_list)):
     otherGenome = ''.join(otherGenomeList)
     otherGenome = otherGenome.replace('\n', '')  # remove newline characters
 
+    # anotherGenomeList = open_file(car_path, character_limit=char_limit)
+    # anotherGenome = ''.join(anotherGenomeList)
+    # anotherGenome = anotherGenome.replace('\n', '')
+
     new_genome = hide_random_sequence(genome)
     correct_values = missing_values_array(genome, new_genome)
 
     kn = KNearestLevenshtein()
     kn.fit(new_genome)
+    # preds = kn.predict(otherGenome, anotherGenome)
     preds = kn.predict(otherGenome)
 
     amount_time = time.time() - start_time
