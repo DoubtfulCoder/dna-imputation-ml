@@ -5,10 +5,32 @@ import numpy as np
 
 from knn_levenshtein import KNearestLevenshtein
 from species import hide_random_sequence, missing_values_array, open_file
-from tests import calcAccuracy
+
+# from tests import calcAccuracy
 
 log_file = open("all_mus_acc.log", 'w')
 sys.stdout = log_file
+
+
+# moved this into here from tests.py since it allows output
+# to be seen in log file without waiting for all code to finish
+def calcAccuracy(correct_values, preds):
+    num_correct = 0
+    num_total = 0
+    error_rates = []
+    for i in range(len(correct_values)):
+        correct = correct_values[i]
+        pred = preds[i]
+        error_rates.append(
+            KNearestLevenshtein.levenshteinDistanceCalc(correct, pred)/len(pred))
+        for j in range(len(correct)):
+            if correct[j] == pred[j]:
+                num_correct += 1
+            num_total += 1
+    print('Accuracy: ', num_correct/num_total)
+    print('Levenshtein Error: ', np.mean(error_rates))
+    return num_correct/num_total
+
 
 # reading the common genes file to see which genes can be used for imputation
 # common_genes = open('genes_in_both.txt', 'r')
@@ -24,7 +46,8 @@ acc_rates = []
 times = []
 
 # for i in range(len(common_genes_list)):
-for i in range(2, 5):
+# for i in range(3, 6):
+for i in [0, 3, 4, 5]:
     start_time = time.time()
 
     mus_path = 'all mouse genes/musculus/' + common_genes_list[i] + '.fna'
@@ -39,17 +62,16 @@ for i in range(2, 5):
     otherGenome = ''.join(otherGenomeList)
     otherGenome = otherGenome.replace('\n', '')  # remove newline characters
 
-    # anotherGenomeList = open_file(car_path, character_limit=char_limit)
-    # anotherGenome = ''.join(anotherGenomeList)
-    # anotherGenome = anotherGenome.replace('\n', '')
+    anotherGenomeList = open_file(car_path, character_limit=char_limit)
+    anotherGenome = ''.join(anotherGenomeList)
+    anotherGenome = anotherGenome.replace('\n', '')
 
     new_genome = hide_random_sequence(genome)
     correct_values = missing_values_array(genome, new_genome)
 
     kn = KNearestLevenshtein()
     kn.fit(new_genome)
-    # preds = kn.predict(otherGenome, anotherGenome)
-    preds = kn.predict(otherGenome)
+    preds = kn.predict([otherGenome, anotherGenome])
 
     amount_time = time.time() - start_time
 
@@ -60,4 +82,7 @@ for i in range(2, 5):
     acc_rates.append(calcAccuracy(correct_values, preds))
 
 print('\nAVERAGE ACCURACY: ', np.mean(acc_rates))
-print('TOTAL TIME: ', np.sum(times))
+total_time_in_seconds = np.sum(times)
+total_minutes = int(total_time_in_seconds / 60)
+leftover_seconds = int(total_time_in_seconds % 60)
+print(f'TOTAL TIME: {total_minutes}m, {leftover_seconds}s')
