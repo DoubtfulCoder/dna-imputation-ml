@@ -125,10 +125,16 @@ class KNearestLevenshtein:
                 average_dist = (pre_distance + post_distance) / 2
                 neighbors.append((prediction, average_dist))
                 i += 1
-                # if average_dist > 15:
-                #     # skip a few iters for high levenshtein
-                #     # print('> 12')
-                #     i += 3
+                if average_dist >= 15:
+                    # skip a few iters for high levenshtein
+                    # each new character is one insertion and one deletion
+                    # so the max that the levenshtein distance could change is 4
+                    # e.g. if the levenshtein is 15 and we skip 2 iters,
+                    # the levenshtein distance could have changed by at most 8
+                    # we want the new levenshtein distance to be <= 10 so
+                    # num of iters to skip is based off multiples of 4
+                    num_iters_to_skip = int((average_dist - 10) / 4)
+                    i += num_iters_to_skip
 
         # Sort neighbors by distance
         neighbors.sort(key=lambda tup: tup[1])
