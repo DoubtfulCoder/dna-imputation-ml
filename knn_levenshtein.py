@@ -9,7 +9,7 @@ sys.stdout = log_file
 
 
 class KNearestLevenshtein:
-    def __init__(self, s_range=1000, area=20, max_ld=3, k=10):
+    def __init__(self, s_range=1000, area=20, max_ld=3, k=7):
         # defines how far back and forward the model will look from the location of the missing values for imputation
         self.search_range = s_range
 
@@ -25,7 +25,7 @@ class KNearestLevenshtein:
     # the function that will return a 2D array having levenshtein distances between respective indices of string 1 and 2.
     def levenshteinDistanceCalc(token1, token2):
         # return hamming(token1, token2)
-        return distance(token1, token2, weights = (2,2,1))
+        return distance(token1, token2, weights = (2,2,1), score_cutoff = 12)
         # if (len(token1) != len(token2)):
         # return distance(token1, token2, weights=(2, 2, 1))
         # return hamming(token1, token2)

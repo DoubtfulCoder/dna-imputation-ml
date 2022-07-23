@@ -48,12 +48,13 @@ idx = []
 # for i in range(len(common_genes_list)):
 # for i in range(3, 6):
 i = 0
-while(i < 2):
-    rand = np.random.randint(0, 14391)
-    if rand in idx:
-        i -= 1
-        continue
-    idx.append(rand)
+# while(i < 2):
+#     rand = np.random.randint(0, 14391)
+#     if rand in idx:
+#         i -= 1
+#         continue
+#     idx.append(rand)
+for rand in [0,3,4,5]:
     start_time = time.time()
 
     mus_path = 'all mouse genes/musculus/' + common_genes_list[rand] + '.fna'
@@ -91,7 +92,7 @@ while(i < 2):
 genes_tested = []
 for j in idx:
     genes_tested.append(common_genes_list[j])
-print('Genes tested: ', genes_tested)
+#print('Genes tested: ', genes_tested)
 print('\nAVERAGE ACCURACY: ', np.mean(acc_rates))
 total_time_in_seconds = np.sum(times)
 total_minutes = int(total_time_in_seconds / 60)
