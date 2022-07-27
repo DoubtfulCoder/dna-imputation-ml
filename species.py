@@ -7,7 +7,7 @@ def open_file(file_name, character_limit=10000):
         return f.readlines()
 
 # list of lists having indices of all blank spaces
-blank_idxs = []
+# blank_idxs = []
 # Hides random sequences of bases in the genome
 def hide_random_sequence(genome, max_length=8):
     # number of times we should hide a sequence
@@ -36,7 +36,7 @@ def hide_random_sequence(genome, max_length=8):
         #starting over if blank spaces overlap
         if flag == True:
             i -= 1
-            break
+            continue
 
         blank_idxs.append(idxs)
 
