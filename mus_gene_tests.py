@@ -78,7 +78,7 @@ for rand in [0, 3]:
     anotherGenome = ''.join(anotherGenomeList)
     anotherGenome = anotherGenome.replace('\n', '')
 
-    new_genome = hide_random_sequence(genome, max_length = 200)
+    new_genome = hide_random_sequence(genome, max_length = 100)
     correct_values = missing_values_array(genome, new_genome)
 
     kn = KNearestLevenshtein()
