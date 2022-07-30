@@ -16,29 +16,29 @@ def hide_random_sequence(genome, max_length=8):
     while (i < iters):
         flag = False
         # hide sequences of random length from 1 to max_length
-        hidden_sequence_length = random.randint(3, max_length)
+        hidden_sequence_length = random.randint(0, max_length)
         # pick a random position and hide sequence starting from there
         start_index = random.randint(21, len(genome) - hidden_sequence_length - 21)
         new_genome = genome[:start_index]
 
         #creating a list with indices of all blank spaces in given iteration
-        idxs = []
-        for j in range(hidden_sequence_length):
-            for space in blank_idxs:
-                #checking to see if space is already a blank, if so, we will leave it be and start over with new random values
-                if (start_index + j) in space:
-                    flag = True
-                    break
-            if flag == True:
-                break
-            idxs.append(start_index + j)
+        # idxs = []
+        # for j in range(hidden_sequence_length):
+        #     for space in blank_idxs:
+        #         #checking to see if space is already a blank, if so, we will leave it be and start over with new random values
+        #         if (start_index + j) in space:
+        #             flag = True
+        #             break
+        #     if flag == True:
+        #         break
+        #     idxs.append(start_index + j)
 
-        #starting over if blank spaces overlap
-        if flag == True:
-            i -= 1
-            continue
+        # #starting over if blank spaces overlap
+        # if flag == True:
+        #     i -= 1
+        #     continue
 
-        blank_idxs.append(idxs)
+        # blank_idxs.append(idxs)
 
         # add blank spaces for hidden part
         for j in range(hidden_sequence_length):

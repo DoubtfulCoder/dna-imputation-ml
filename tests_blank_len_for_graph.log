@@ -1,0 +1,589 @@
+LENGTH = 2
+
+PRED DETAILS FOR: Sgta
+time: 11.363013505935669
+Accuracy:  0.9451219512195121
+Levenshtein Error:  0.05092592592592592
+maximum length blank space:  4
+no. of predictions:  108
+
+
+
+PRED DETAILS FOR: Cd38
+time: 88.8494176864624
+Accuracy:  0.888641425389755
+Levenshtein Error:  0.10494880546075085
+maximum length blank space:  4
+no. of predictions:  293
+
+
+
+PRED DETAILS FOR: Chdh
+time: 46.25845956802368
+Accuracy:  0.9661016949152542
+Levenshtein Error:  0.03398058252427184
+maximum length blank space:  3
+no. of predictions:  206
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 38.77016878128052
+Accuracy:  0.7532894736842105
+Levenshtein Error:  0.2426470588235294
+maximum length blank space:  3
+no. of predictions:  204
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.888288636302183
+TOTAL TIME: 3m, 5s
+
+LENGTH = 4
+
+PRED DETAILS FOR: Sgta
+time: 13.352983951568604
+Accuracy:  0.941717791411043
+Levenshtein Error:  0.07115384615384615
+maximum length blank space:  5
+no. of predictions:  130
+
+
+
+PRED DETAILS FOR: Cd38
+time: 102.60054850578308
+Accuracy:  0.9300699300699301
+Levenshtein Error:  0.07128810226155358
+maximum length blank space:  5
+no. of predictions:  339
+
+
+
+PRED DETAILS FOR: Chdh
+time: 55.221609115600586
+Accuracy:  0.9556259904912837
+Levenshtein Error:  0.04883879781420765
+maximum length blank space:  7
+no. of predictions:  244
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 47.86720061302185
+Accuracy:  0.7630331753554502
+Levenshtein Error:  0.22506720430107524
+maximum length blank space:  6
+no. of predictions:  248
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.8976117218319267
+TOTAL TIME: 3m, 39s
+
+LENGTH = 8
+
+PRED DETAILS FOR: Sgta
+time: 13.963432788848877
+Accuracy:  0.9159891598915989
+Levenshtein Error:  0.08823529411764706
+maximum length blank space:  7
+no. of predictions:  136
+
+
+
+PRED DETAILS FOR: Cd38
+time: 112.46472072601318
+Accuracy:  0.9208715596330275
+Levenshtein Error:  0.07700928594300353
+maximum length blank space:  9
+no. of predictions:  347
+
+
+
+PRED DETAILS FOR: Chdh
+time: 60.74885010719299
+Accuracy:  0.9317073170731708
+Levenshtein Error:  0.07226832641770402
+maximum length blank space:  7
+no. of predictions:  241
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 49.67027735710144
+Accuracy:  0.7389162561576355
+Levenshtein Error:  0.25872507122507127
+maximum length blank space:  8
+no. of predictions:  234
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.876871073188858
+TOTAL TIME: 3m, 56s
+
+LENGTH = 16
+
+
+
+
+PRED DETAILS FOR: Sgta
+time: 13.681593418121338
+Accuracy:  0.9116719242902208
+Levenshtein Error:  0.07460533376874741
+maximum length blank space:  21
+no. of predictions:  138
+
+
+
+PRED DETAILS FOR: Cd38
+time: 111.41681456565857
+Accuracy:  0.9104612601748568
+Levenshtein Error:  0.08213059142139138
+maximum length blank space:  24
+no. of predictions:  377
+
+
+
+PRED DETAILS FOR: Chdh
+time: 63.39627552032471
+Accuracy:  0.9106858054226475
+Levenshtein Error:  0.09390582726881658
+maximum length blank space:  22
+no. of predictions:  281
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 48.957133769989014
+Accuracy:  0.7256478999106345
+Levenshtein Error:  0.2562631383473863
+maximum length blank space:  25
+no. of predictions:  263
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.8646167224495899
+TOTAL TIME: 3m, 57s
+
+LENGTH = 32
+
+
+
+
+PRED DETAILS FOR: Sgta
+time: 13.787510871887207
+Accuracy:  0.8692602040816326
+Levenshtein Error:  0.09775638588768842
+maximum length blank space:  26
+no. of predictions:  140
+
+
+
+PRED DETAILS FOR: Cd38
+time: 105.97301602363586
+Accuracy:  0.9162108403779214
+Levenshtein Error:  0.08248854415904992
+maximum length blank space:  32
+no. of predictions:  367
+
+
+
+PRED DETAILS FOR: Chdh
+time: 60.2323796749115
+Accuracy:  0.9206848357791754
+Levenshtein Error:  0.08758783652894923
+maximum length blank space:  36
+no. of predictions:  273
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 49.14710259437561
+Accuracy:  0.7622036262203626
+Levenshtein Error:  0.21727094233137448
+maximum length blank space:  37
+no. of predictions:  268
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.867089876614773
+TOTAL TIME: 3m, 49s
+
+LENGTH = 64
+
+PRED DETAILS FOR: Sgta
+time: 13.725598335266113
+Accuracy:  0.8767344304614392
+Levenshtein Error:  0.08888279064678496
+maximum length blank space:  105
+no. of predictions:  133
+
+
+
+PRED DETAILS FOR: Cd38
+time: 105.35541772842407
+Accuracy:  0.8853396901072705
+Levenshtein Error:  0.09007074545569943
+maximum length blank space:  78
+no. of predictions:  350
+
+
+
+PRED DETAILS FOR: Chdh
+time: 56.79888963699341
+Accuracy:  0.8794033069734004
+Levenshtein Error:  0.10323134256644445
+maximum length blank space:  78
+no. of predictions:  254
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 45.717472076416016
+Accuracy:  0.7454673472980109
+Levenshtein Error:  0.2301961120734771
+maximum length blank space:  77
+no. of predictions:  248
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.8467361937100303
+TOTAL TIME: 3m, 41s
+
+
+LENGTH = 128
+
+
+
+
+PRED DETAILS FOR: Sgta
+time: 12.762486934661865
+Accuracy:  0.8600766703176341
+Levenshtein Error:  0.09850019537795116
+maximum length blank space:  137
+no. of predictions:  122
+
+
+
+PRED DETAILS FOR: Cd38
+time: 99.74639129638672
+Accuracy:  0.8392243991112907
+Levenshtein Error:  0.11515245334677125
+maximum length blank space:  114
+no. of predictions:  331
+
+
+
+PRED DETAILS FOR: Chdh
+time: 51.83315372467041
+Accuracy:  0.8695041438404271
+Levenshtein Error:  0.10345416488199068
+maximum length blank space:  112
+no. of predictions:  237
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 41.83999705314636
+Accuracy:  0.7363636363636363
+Levenshtein Error:  0.24099519759417837
+maximum length blank space:  92
+no. of predictions:  228
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.826292212408247
+TOTAL TIME: 3m, 26s
+
+LENGTH = 180
+
+
+
+
+PRED DETAILS FOR: Sgta
+time: 11.350576162338257
+Accuracy:  0.835179742256387
+Levenshtein Error:  0.12326345730769558
+maximum length blank space:  112
+no. of predictions:  108
+
+
+
+PRED DETAILS FOR: Cd38
+time: 94.81412839889526
+Accuracy:  0.8445325166636642
+Levenshtein Error:  0.10514746787789131
+maximum length blank space:  150
+no. of predictions:  301
+
+
+
+PRED DETAILS FOR: Chdh
+time: 58.469104528427124
+Accuracy:  0.8331161909273955
+Levenshtein Error:  0.12256861807058798
+maximum length blank space:  204
+no. of predictions:  223
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 54.397565841674805
+Accuracy:  0.6728482446206115
+Levenshtein Error:  0.2522317967310576
+maximum length blank space:  135
+no. of predictions:  225
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.7964191736170145
+TOTAL TIME: 3m, 39s
+
+LENGTH = 220
+
+
+
+
+PRED DETAILS FOR: Sgta
+time: 14.217030048370361
+Accuracy:  0.7573418358785031
+Levenshtein Error:  0.1280638223362338
+maximum length blank space:  232
+no. of predictions:  101
+
+
+
+PRED DETAILS FOR: Cd38
+time: 139.7875828742981
+Accuracy:  0.794248788368336
+Levenshtein Error:  0.12248439551126697
+maximum length blank space:  311
+no. of predictions:  283
+
+
+
+PRED DETAILS FOR: Chdh
+time: 69.0045793056488
+Accuracy:  0.8308355021089473
+Levenshtein Error:  0.09938146121682313
+maximum length blank space:  174
+no. of predictions:  190
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 52.89040732383728
+Accuracy:  0.6690070210631895
+Levenshtein Error:  0.24872184350422516
+maximum length blank space:  229
+no. of predictions:  191
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.762858286854744
+TOTAL TIME: 4m, 35s
+
+LENGTH = 256
+
+PRED DETAILS FOR: Sgta
+time: 8.982574939727783
+Accuracy:  0.6804552686329702
+Levenshtein Error:  0.13236052797960796
+maximum length blank space:  266
+no. of predictions:  86
+
+
+
+PRED DETAILS FOR: Cd38
+time: 66.79710149765015
+Accuracy:  0.7224744060266564
+Levenshtein Error:  0.14402829689165134
+maximum length blank space:  347
+no. of predictions:  227
+
+
+
+PRED DETAILS FOR: Chdh
+time: 34.95384240150452
+Accuracy:  0.7278277203810546
+Levenshtein Error:  0.13318213053446543
+maximum length blank space:  368
+no. of predictions:  158
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 28.181536197662354
+Accuracy:  0.622148714768107
+Levenshtein Error:  0.2630199220915839
+maximum length blank space:  598
+no. of predictions:  152
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.688226527452197
+TOTAL TIME: 2m, 18s
+
+LENGTH = 300
+
+
+
+
+PRED DETAILS FOR: Sgta
+time: 13.392608880996704
+Accuracy:  0.7802609661299278
+Levenshtein Error:  0.1468880134791892
+maximum length blank space:  239
+no. of predictions:  93
+
+
+
+PRED DETAILS FOR: Cd38
+time: 119.61909699440002
+Accuracy:  0.7652603231597845
+Levenshtein Error:  0.13482742102806902
+maximum length blank space:  247
+no. of predictions:  247
+
+
+
+PRED DETAILS FOR: Chdh
+time: 63.573614835739136
+Accuracy:  0.7325268817204301
+Levenshtein Error:  0.1375906804241395
+maximum length blank space:  325
+no. of predictions:  172
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 47.58648753166199
+Accuracy:  0.6274279448621554
+Levenshtein Error:  0.2957776520735332
+maximum length blank space:  375
+no. of predictions:  163
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.7263690289680744
+TOTAL TIME: 4m, 4s
+
+
+
+LENGTH = 512
+
+
+
+
+PRED DETAILS FOR: Sgta
+time: 8.508020639419556
+Accuracy:  0.6580512351326624
+Levenshtein Error:  0.1407689392902184
+maximum length blank space:  534
+no. of predictions:  82
+
+
+
+PRED DETAILS FOR: Cd38
+time: 63.140690326690674
+Accuracy:  0.7356361295859257
+Levenshtein Error:  0.13220901088061804
+maximum length blank space:  513
+no. of predictions:  213
+
+
+
+PRED DETAILS FOR: Chdh
+time: 31.649011850357056
+Accuracy:  0.7509507962918944
+Levenshtein Error:  0.12468479075610604
+maximum length blank space:  490
+no. of predictions:  144
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 24.093518495559692
+Accuracy:  0.5650091839412228
+Levenshtein Error:  0.29910244683026227
+maximum length blank space:  378
+no. of predictions:  132
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.6774118362379264
+TOTAL TIME: 2m, 7s
+
+LENGTH = 650
+
+
+
+
+PRED DETAILS FOR: Sgta
+time: 6.508389711380005
+Accuracy:  0.6558377848032269
+Levenshtein Error:  0.1558582986949632
+maximum length blank space:  587
+no. of predictions:  61
+
+
+
+PRED DETAILS FOR: Cd38
+time: 55.20720839500427
+Accuracy:  0.6642606320717909
+Levenshtein Error:  0.15840135875164724
+maximum length blank space:  618
+no. of predictions:  188
+
+
+
+PRED DETAILS FOR: Chdh
+time: 29.554344415664673
+Accuracy:  0.6960968727956737
+Levenshtein Error:  0.15063341625362556
+maximum length blank space:  736
+no. of predictions:  132
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 20.03798007965088
+Accuracy:  0.5400194952886386
+Levenshtein Error:  0.29184808059688755
+maximum length blank space:  571
+no. of predictions:  109
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.6390536962398325
+TOTAL TIME: 1m, 51s
+
+
+LENGTH = 1024
+
+
+
+PRED DETAILS FOR: Sgta
+time: 4.390740156173706
+Accuracy:  0.44407843137254904
+Levenshtein Error:  0.22810264342162206
+maximum length blank space:  1307
+no. of predictions:  39
+
+
+
+PRED DETAILS FOR: Cd38
+time: 37.139556646347046
+Accuracy:  0.5101176470588236
+Levenshtein Error:  0.1432993968264059
+maximum length blank space:  1616
+no. of predictions:  117
+
+
+
+PRED DETAILS FOR: Chdh
+time: 18.23445153236389
+Accuracy:  0.5487718123613843
+Levenshtein Error:  0.15916887260484375
+maximum length blank space:  910
+no. of predictions:  80
+
+
+
+PRED DETAILS FOR: Sirt5
+time: 14.112805604934692
+Accuracy:  0.46139807308688086
+Levenshtein Error:  0.3376672867112511
+maximum length blank space:  1341
+no. of predictions:  79
+Genes tested:  ['Sgta', 'Cd38', 'Chdh', 'Sirt5']
+
+AVERAGE ACCURACY:  0.49109149096990945
+TOTAL TIME: 1m, 13s

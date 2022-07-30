@@ -53,7 +53,7 @@ i = 0
 #     if rand in idx or common_genes_list[rand] in ['Gpr137b', 'Shank1', 'Pias2', 'Cdc42ep4', 'Atp6v1g3', 'Lcor', 'Nudt9', 'Cdc37', 'Ccdc9b', 'Rab5c', 'Nup43', 'Lonrf1', 'Wdpcp', 'Gorasp2', 'Trip12']:
 #         i -= 1
 #         continue
-for rand in [0, 3]:
+for rand in [0, 3,4,5]:
     start_time = time.time()
 
     mus_path = 'all mouse genes/musculus/' + common_genes_list[rand] + '.fna'
@@ -78,10 +78,10 @@ for rand in [0, 3]:
     anotherGenome = ''.join(anotherGenomeList)
     anotherGenome = anotherGenome.replace('\n', '')
 
-    new_genome = hide_random_sequence(genome, max_length = 100)
+    new_genome = hide_random_sequence(genome, max_length = 12)
     correct_values = missing_values_array(genome, new_genome)
 
-    kn = KNearestLevenshtein()
+    kn = KNearestLevenshtein(area = 100)
     kn.fit(new_genome)
     preds = kn.predict([otherGenome, anotherGenome])
 
