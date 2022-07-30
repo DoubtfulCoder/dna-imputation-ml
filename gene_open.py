@@ -10,11 +10,12 @@ sys.stdout = log_file
 # Nishkal paths
 # path_musculus = 'C:/Users/nupur/Downloads/mus musculus data/ncbi_dataset/data/gene.fna'
 # path_pahari = 'C:/Users/nupur/Downloads/mus pahari data/ncbi_dataset/data/gene.fna'
+# path_caroli = 'C:/Users/nupur/Downloads/mus caroli data/ncbi_dataset/data/gene.fna'
 
 # Naveed paths
 path_musculus = '/home/naveed/Downloads/mus_musculus_all_proteins/ncbi_dataset/data/gene.fna'
 path_pahari = '/home/naveed/Downloads/mus_pahari_all_genes/ncbi_dataset/data/gene.fna'
-path_caroli = 'C:/Users/nupur/Downloads/mus caroli data/ncbi_dataset/data/gene.fna'
+path_caroli = '/home/naveed/Downloads/mus_caroli_all_genes/ncbi_dataset/data/gene.fna'
 
 
 def open_genes(file_name, gene_extraction_path, line_limit=20000, list_of_genes_to_use=None):
@@ -92,7 +93,8 @@ caroli_gene_extraction_path = 'all mouse genes/caroli/'
 # genomeList = open_genes(
 #     path_musculus, musculus_gene_extraction_path, line_limit=2000000000000)
 
-genomeList = open_genes(path_caroli, caroli_gene_extraction_path, line_limit=2000000000000)
+genomeList = open_genes(
+    path_caroli, caroli_gene_extraction_path, line_limit=2000000000000)
 
 # get all the file names in pahari directory (removes the .fna extension)
 # used to ensure we only get files in musculus that are in pahari
