@@ -9,7 +9,7 @@ sys.stdout = log_file
 
 
 class KNearestLevenshtein:
-    def __init__(self, s_range=1000, area=20, max_ld=3, k=10):
+    def __init__(self, s_range=1000, area=20, max_ld=3, k=7):
         # defines how far back and forward the model will look from the location of the missing values for imputation
         self.search_range = s_range
 
@@ -122,7 +122,7 @@ class KNearestLevenshtein:
                     substring_pre, correct_seq[blank_idx - self.search_area: blank_idx])
                 post_distance = KNearestLevenshtein.levenshteinDistanceCalc(
                     substring_post, correct_seq[blank_idx + blank_len: blank_idx + blank_len + self.search_area])
-                average_dist = (pre_distance + post_distance) / 2
+                average_dist = (pre_distance + post_distance)/2
                 neighbors.append((prediction, average_dist))
                 i += 1
                 if average_dist >= 15:

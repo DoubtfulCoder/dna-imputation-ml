@@ -48,12 +48,12 @@ idx = []
 # for i in range(len(common_genes_list)):
 # for i in range(3, 6):
 i = 0
-while(i < 2):
-    rand = np.random.randint(0, 14391)
-    if rand in idx:
-        i -= 1
-        continue
-    idx.append(rand)
+# while(i < 5):
+#     rand = np.random.randint(0, 14391)
+#     if rand in idx or common_genes_list[rand] in ['Gpr137b', 'Shank1', 'Pias2', 'Cdc42ep4', 'Atp6v1g3', 'Lcor', 'Nudt9', 'Cdc37', 'Ccdc9b', 'Rab5c', 'Nup43', 'Lonrf1', 'Wdpcp', 'Gorasp2', 'Trip12']:
+#         i -= 1
+#         continue
+for rand in [0, 3]:
     start_time = time.time()
 
     mus_path = 'all mouse genes/musculus/' + common_genes_list[rand] + '.fna'
@@ -64,6 +64,12 @@ while(i < 2):
     genome = ''.join(genomeList)  # combine each line of genome into 1 string
     genome = genome.replace('\n', '')  # remove newline characters
 
+    # if len(genome) > 50000:
+    #     i -= 1
+    #     continue
+
+    idx.append(rand)
+
     otherGenomeList = open_file(pah_path, character_limit=char_limit)
     otherGenome = ''.join(otherGenomeList)
     otherGenome = otherGenome.replace('\n', '')  # remove newline characters
@@ -72,7 +78,7 @@ while(i < 2):
     anotherGenome = ''.join(anotherGenomeList)
     anotherGenome = anotherGenome.replace('\n', '')
 
-    new_genome = hide_random_sequence(genome)
+    new_genome = hide_random_sequence(genome, max_length = 100)
     correct_values = missing_values_array(genome, new_genome)
 
     kn = KNearestLevenshtein()
@@ -87,6 +93,12 @@ while(i < 2):
     times.append(amount_time)
     acc_rates.append(calcAccuracy(correct_values, preds))
     i+=1
+
+    max_len = 0
+    for str in correct_values:
+        max_len = max(len(str), max_len)
+    print('maximum length blank space: ', max_len)
+    print('no. of predictions: ', len(correct_values))
 
 genes_tested = []
 for j in idx:
