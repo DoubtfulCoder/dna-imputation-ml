@@ -151,7 +151,7 @@ class KNearestLevenshtein:
         #     return neighbors[:lev_count]
 
         # adding a max dist
-        return neighbors[:self.k_neighbors]
+        #return neighbors[:self.k_neighbors]
         k_count = 0
         for neighbor in neighbors:
             if neighbor[1] - least_lev <= self.levDist_max:
