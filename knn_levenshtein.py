@@ -25,7 +25,7 @@ class KNearestLevenshtein:
     # the function that will return a 2D array having levenshtein distances between respective indices of string 1 and 2.
     def levenshteinDistanceCalc(token1, token2):
         # return hamming(token1, token2)
-        return distance(token1, token2, weights = (2,2,1))
+        return distance(token1, token2, weights=(2, 2, 1))
         # if (len(token1) != len(token2)):
         # return distance(token1, token2, weights=(2, 2, 1))
         # return hamming(token1, token2)
@@ -151,9 +151,10 @@ class KNearestLevenshtein:
         #     return neighbors[:lev_count]
 
         # adding a max dist
+        return neighbors[:self.k_neighbors]
         k_count = 0
         for neighbor in neighbors:
-            if neighbor[1] - least_lev <= 3:
+            if neighbor[1] - least_lev <= self.levDist_max:
                 k_count += 1
             else:
                 break

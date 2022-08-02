@@ -1,0 +1,69 @@
+2 species + no insertion/deletion punishment
+PRED DETAILS FOR: Mis18bp1
+time: 56.19716739654541
+Accuracy:  0.7316543638732088
+Levenshtein Error:  0.2435883915642438
+maximum length blank space:  20
+no. of predictions:  352
+Genes tested:  ['Mis18bp1']
+TOTAL TIME: 0m, 56s
+
+
+
+2 species + insertion/deletion punishment
+
+PRED DETAILS FOR: Mis18bp1
+time: 85.45735502243042
+Accuracy:  0.7429752066115702
+Levenshtein Error:  0.2740994414449471
+maximum length blank space:  22
+no. of predictions:  356
+Genes tested:  ['Mis18bp1']
+
+AVERAGE ACCURACY:  0.7429752066115702
+TOTAL TIME: 1m, 25s
+
+
+3 species + no insertion/deletion punishment
+
+PRED DETAILS FOR: Mis18bp1
+time: 106.01920771598816
+Accuracy:  0.8700516351118761
+Levenshtein Error:  0.11889782520217301
+maximum length blank space:  23
+no. of predictions:  345
+Genes tested:  ['Mis18bp1']
+
+AVERAGE ACCURACY:  0.8700516351118761
+TOTAL TIME: 1m, 46s
+
+
+
+
+3 species + insertion/deletion punishment
+
+PRED DETAILS FOR: Mis18bp1
+time: 159.9420063495636
+Accuracy:  0.8639455782312925
+Levenshtein Error:  0.1583378891338874
+maximum length blank space:  19
+no. of predictions:  363
+Genes tested:  ['Mis18bp1']
+
+AVERAGE ACCURACY:  0.8639455782312925
+TOTAL TIME: 2m, 39s
+
+
+
+3 species + insertion punishment + k-neighbor pruning
+
+PRED DETAILS FOR: Mis18bp1
+time: 152.59749794006348
+Accuracy:  0.9161518093556928
+Levenshtein Error:  0.07636979532929783
+maximum length blank space:  22
+no. of predictions:  347
+Genes tested:  ['Mis18bp1']
+
+AVERAGE ACCURACY:  0.9161518093556928
+TOTAL TIME: 2m, 32s

@@ -160,6 +160,14 @@ time: 16.245262145996094
 Accuracy:  0.9024663677130045
 Levenshtein Error:  0.09457609490077022
 
+PRED DETAILS FOR: Mis18bp1
+time: 152.59749794006348
+Accuracy:  0.9161518093556928
+Levenshtein Error:  0.07636979532929783
+maximum length blank space:  22
+no. of predictions:  347
+Genes tested:  ['Mis18bp1']
+
 
 neighbors for blank space at  52 are:  [('GTCTTCA', 0.0), ('GTCTTCG', 0.0)]
 neighbors for blank space at  144 are:  [('CGG', 0.5), ('CGG', 0.5)]
@@ -1178,5 +1186,5 @@ time: 61.36909604072571
 Accuracy:  0.75
 Levenshtein Error:  0.24533984854054056
 
-AVERAGE ACCURACY:  0.8706206670266745
-TOTAL TIME: 4m, 44s
+AVERAGE ACCURACY:  0.87972689549
+TOTAL TIME: 4m, 44s (not including Mis18bp1)

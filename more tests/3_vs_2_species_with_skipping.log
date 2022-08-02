@@ -1340,6 +1340,15 @@ time: 9.055336952209473
 Accuracy:  0.8574766355140186
 Levenshtein Error:  0.13498745998745998
 
+PRED DETAILS FOR: Mis18bp1
+time: 85.45735502243042
+Accuracy:  0.7429752066115702
+Levenshtein Error:  0.2740994414449471
+maximum length blank space:  22
+no. of predictions:  356
+Genes tested:  ['Mis18bp1']
+TOTAL TIME: 1m, 25s
+
 
 neighbors for blank space at  93 are:  [('GTCTGG', 0.0)]
 neighbors for blank space at  277 are:  [('CTC', 1.5)]
@@ -2340,8 +2349,8 @@ time: 30.782801151275635
 Accuracy:  0.7066167290886392
 Levenshtein Error:  0.29058022873812345
 
-AVERAGE ACCURACY:  0.7943631161471693
-TOTAL TIME: 2m, 23s
+AVERAGE ACCURACY:  0.78408553424
+TOTAL TIME: 2m, 23s (not including Mis18bp1)
 
 2 SPECIES WITH SKIPPING(MUSCULUS, CALORI)
 
