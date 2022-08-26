@@ -6,6 +6,7 @@
 4. Uncomment the pahari and musculus lines in which open_genes is called and run the script.
 
 
+```bash
 ├── all_gene_names.txt
 ├── all_mus_acc.log
 ├── area_under_curve.py: file for calculating area under curve of maximum blank length vs. 
@@ -104,3 +105,4 @@
 ├── tests_for_area.log
 ├── tests.py
 └── tests_with_mis18bp1.log
+```
