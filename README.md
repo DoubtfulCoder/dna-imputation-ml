@@ -7,19 +7,18 @@
 
 
 ```bash
-├── all_gene_names.txt
-├── all_mus_acc.log
-├── area_under_curve.py: file for calculating area under curve of maximum blank length vs. 
+├── knn_levenshtein.py: main algorithm file for KNN and levenshtein distance
+├── gene_open.py: converts FASTA file for Mus genus into individual gene files (make sure to change paths)
+├── species.py: contains common species methods like imputing values
+├── mus_gene_tests.py: use this file for running tests
+├── tests.py: old file that had tests for just a few genes
+├── area_under_curve.py: file for calculating area under curve of maximum blank length vs. accuracy
+├── score_cutoff_tests.py: a file for time tests for different score cutoffs and strings
+├── missing_lengths.py: file for calculating average missing blank space in real world data
 ├── gene_logs
 │   ├── skipping_plus_equal_weights_for_ins_and_del.log
 │   ├── without_skipping.log
 │   └── with_skipping.log
-├── gene_open.py: opens a genomic FASTA file
-├── genes_in_all.txt
-├── genes_in_both.txt
-├── knn_levenshtein.py: main algorithm file for KNN and levenshtein distance
-├── message.log
-├── missing_lengths.py
 ├── more tests
 │   ├── 3_skipping_randomspecies.log
 │   ├── 3_species_score_cutoff.log
@@ -30,79 +29,18 @@
 │   ├── len_30_blanks.log
 │   ├── more tests.log
 │   └── mus_genes.log
-├── mus_gene_tests.py
 ├── mus_musculus_pahari
 │   ├── accuracies_maxdist.txt
 │   ├── accuracies.txt
 │   ├── musculus
-│   │   ├── atf4.fna
-│   │   ├── casd1.fna
-│   │   ├── cplx3.fna
-│   │   ├── egln1.fna
-│   │   ├── fbxw8.fna
-│   │   ├── gad2.fna
-│   │   ├── lrp1b.fna
-│   │   ├── mafa.fna
-│   │   ├── mecp2.fna
-│   │   ├── nfkb1.fna
-│   │   ├── pon1.fna
-│   │   ├── prkrip1.fna
-│   │   ├── qdpr.fna
-│   │   ├── tmem185a.fna
-│   │   ├── ucp2.fna
-│   │   └── zfp746.fna
 │   ├── pahari
-│   │   ├── atf4.fna
-│   │   ├── casd1.fna
-│   │   ├── cplx3.fna
-│   │   ├── egln1.fna
-│   │   ├── fbxw8.fna
-│   │   ├── gad2.fna
-│   │   ├── mafa.fna
-│   │   ├── mecp2.fna
-│   │   ├── nfkb1.fna
-│   │   ├── pon1.fna
-│   │   ├── prkrip1.fna
-│   │   ├── qdpr.fna
-│   │   ├── tmem185a.fna
-│   │   ├── ucp2.fna
-│   │   └── znf746.fna
 │   ├── tests
-│   │   ├── atf4.log
-│   │   ├── casd1.log
-│   │   ├── cplx3.log
-│   │   ├── egln1.log
-│   │   ├── fbxw8.log
-│   │   ├── gad2.log
-│   │   ├── mafa.log
-│   │   ├── mecp2.log
-│   │   ├── nfkb1.log
-│   │   ├── pon1.log
-│   │   ├── prkrip1.log
-│   │   ├── qdpr.log
-│   │   ├── tmem185a.log
-│   │   ├── ucp2.log
-│   │   └── znf746.log
 │   └── tests_maxdist
-│       ├── atf4.log
-│       ├── casd1.log
-│       ├── cplx3.log
-│       ├── egln1.log
-│       ├── fbxw8.log
-│       ├── gad2.log
-│       ├── mafa.log
-│       ├── mecp2.log
-│       ├── nfkb1.log
-│       ├── pon1.log
-│       ├── prkrip1.log
-│       ├── qdpr.log
-│       ├── tmem185a.log
-│       ├── ucp2.log
-│       └── znf746.log
-├── score_cutoff_tests.py
-├── species.py
+├── all_mus_acc.log
+├── message.log
 ├── tests_blank_len_for_graph.log
 ├── tests_for_area.log
-├── tests.py
-└── tests_with_mis18bp1.log
+├── tests_with_mis18bp1.log
+├── genes_in_both.txt
+└── genes_in_all.txt
 ```
