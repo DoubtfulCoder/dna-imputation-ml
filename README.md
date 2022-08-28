@@ -39,8 +39,8 @@
 ├── all_mus_acc.log
 ├── message.log
 ├── tests_blank_len_for_graph.log
-├── tests_for_area.log
+├── tests_for_area.log: multiple tests run on 5 representative genes with different values of search area each time
 ├── tests_with_mis18bp1.log
-├── genes_in_both.txt
-└── genes_in_all.txt
+├── genes_in_both.txt: list of genes common in mus musculus and pahari
+└── genes_in_all.txt: list of genes common in mus musculus, pahari and caroli
 ```
