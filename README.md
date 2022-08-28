@@ -16,18 +16,18 @@
 ├── score_cutoff_tests.py: a file for time tests for different score cutoffs and strings
 ├── missing_lengths.py: file for calculating average missing blank space in real world data
 ├── gene_logs
-│   ├── skipping_plus_equal_weights_for_ins_and_del.log
-│   ├── without_skipping.log
-│   └── with_skipping.log
+│   ├── skipping_plus_equal_weights_for_ins_and_del.log: details of tests run with no weight modification to levenshtein distance
+│   ├── without_skipping.log: details of tests run without implementation of a method that skips iterations
+│   └── with_skipping.log: details of tests run run with the method that skips iterations when a certain condition is met
 ├── more tests
-│   ├── 3_skipping_randomspecies.log
-│   ├── 3_species_score_cutoff.log
-│   ├── 3_species_with_skipping.log
-│   ├── 3_vs_2_species.log
-│   ├── 3_vs_2_species_with_skipping.log
-│   ├── higher blanks spaces.log
+│   ├── 3_skipping_randomspecies.log: details of tests run on randomly selected genes with two species(caroli and pahari) for imputation with skipping
+│   ├── 3_species_score_cutoff.log: details of tests run with two species(caroli and pahari) for imputation with a score cutoff
+│   ├── 3_species_with_skipping.log: details of tests run with 5 representative genes from two species(caroli and pahari) for imputation with skipping
+│   ├── 3_vs_2_species.log: comparison of accuracy of the algorithm with one species  vs two for imputation of 5 representative genes
+│   ├── 3_vs_2_species_with_skipping.log: comparison of accuracy of the algorithm with one species  vs two for imputation of 5 representative genes with skipping
+│   ├── higher blanks spaces.log: multiple tests run on 5 representative genes with a different maximum blank space length each time
 │   ├── len_30_blanks.log
-│   ├── more tests.log
+│   ├── more tests.log: tests run on a high number of randomly selected genes to test if algorithm works well for all genes
 │   └── mus_genes.log
 ├── mus_musculus_pahari
 │   ├── accuracies_maxdist.txt
